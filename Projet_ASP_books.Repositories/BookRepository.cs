@@ -28,6 +28,12 @@ namespace Projet_ASP_books.Repositories
             throw new NotImplementedException();
         }
 
+        public List<BookEntity> GetOneRandom()
+        {
+            string requete = "SELECT * from V_RandomBook";
+            return base.Get(requete);
+        }
+
         public bool Insert(BookEntity toInsert)
         {
             throw new NotImplementedException();

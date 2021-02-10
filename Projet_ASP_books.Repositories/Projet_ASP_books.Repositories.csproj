@@ -44,6 +44,7 @@
     <Compile Include="AudienceRepository.cs" />
     <Compile Include="BookRepository.cs" />
     <Compile Include="CategoryRepository.cs" />
+    <Compile Include="AuthorRepository.cs" />
     <Compile Include="ReadingFormRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublisherBookRepository.cs" />
@@ -54,6 +55,10 @@
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Projet_ASP_book.Models\Projet_ASP_books.Models.csproj">
+      <Project>{c12ba24c-29f0-4ad3-b8e5-674815bdbeca}</Project>
+      <Name>Projet_ASP_books.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Projet_ASP_books.DAL\Projet_ASP_books.DAL.csproj">
       <Project>{14975123-f9d9-4956-ab1a-45b8f9d87333}</Project>
       <Name>Projet_ASP_books.DAL</Name>

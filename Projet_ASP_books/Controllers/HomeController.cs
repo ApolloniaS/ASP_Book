@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projet_ASP_books.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,8 @@ namespace Projet_ASP_books.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            HomeViewModel hm = new HomeViewModel();
+            return View(hm);
         }
 
         public ActionResult About()

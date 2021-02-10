@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudienceEntity.cs" />
+    <Compile Include="AuthorEntity.cs" />
     <Compile Include="BookEntity.cs" />
     <Compile Include="CategoryEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

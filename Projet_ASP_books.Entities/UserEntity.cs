@@ -9,8 +9,7 @@ namespace Projet_ASP_books.Entities
     public class UserEntity
     {
         private int _idUser;
-        private string _firstname, _lastname, _email, _login, _password;
-        //avatar varbinary ??
+        private string _firstname, _lastname, _email, _login, _password, _avatar;
         private bool _isAdmin;
         private DateTime _birthdate;
         private int _salt;
@@ -24,5 +23,6 @@ namespace Projet_ASP_books.Entities
         public bool IsAdmin { get => _isAdmin; set => _isAdmin = value; }
         public DateTime Birthdate { get => _birthdate; set => _birthdate = value; }
         public int Salt { get => _salt; set => _salt = value; }
+        public string Avatar { get => _avatar; set => _avatar = value; }
     }
 }

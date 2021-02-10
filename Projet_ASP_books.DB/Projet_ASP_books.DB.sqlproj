@@ -60,7 +60,7 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\ScalarFunctions" />
     <Folder Include="dbo\StoredProcedure" />
-    <Folder Include="dbo\View" />
+    <Folder Include="dbo\Views\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\UserBook.sql" />
@@ -78,6 +78,7 @@
     <Build Include="dbo\ScalarFunctions\SF_GenerateSalt.sql" />
     <Build Include="dbo\ScalarFunctions\SF_PassWordEncryption.sql" />
     <Build Include="dbo\StoredProcedure\User_Insert.sql" />
-    <Build Include="dbo\View\V_RandomNb.sql" />
+    <Build Include="dbo\Views\V_RandomBook.sql" />
+    <Build Include="dbo\Views\V_RandomNb.sql" />
   </ItemGroup>
 </Project>

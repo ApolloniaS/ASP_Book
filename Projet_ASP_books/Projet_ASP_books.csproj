@@ -124,6 +124,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -343,7 +344,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -357,6 +357,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Projet_ASP_book.Models\Projet_ASP_books.Models.csproj">
+      <Project>{c12ba24c-29f0-4ad3-b8e5-674815bdbeca}</Project>
+      <Name>Projet_ASP_books.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projet_ASP_books.Repositories\Projet_ASP_books.Repositories.csproj">
+      <Project>{a8e72efc-abb8-4a6e-9fec-27e695090d2e}</Project>
+      <Name>Projet_ASP_books.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
