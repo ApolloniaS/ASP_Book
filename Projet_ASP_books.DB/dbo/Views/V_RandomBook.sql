@@ -1,6 +1,6 @@
 ﻿CREATE VIEW dbo.V_RandomBook
 AS
-SELECT        TOP (1) dbo.Book.picture, dbo.Book.title, dbo.Book.summary, dbo.Author.firstname, dbo.Author.lastname
+SELECT        TOP (1) dbo.BookAuthor.idBook, dbo.Book.picture, dbo.Book.title, dbo.Book.summary, dbo.Author.firstname, dbo.Author.lastname
 FROM            dbo.Author INNER JOIN
                          dbo.BookAuthor ON dbo.Author.idAuthor = dbo.BookAuthor.idAuthor INNER JOIN
                          dbo.Book ON dbo.BookAuthor.idBook = dbo.Book.idBook

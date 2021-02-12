@@ -13,6 +13,14 @@ namespace Projet_ASP_books.Repositories
         public AudienceRepository(string connectionString) : base(connectionString)
         {
         }
+
+        // récup le public depuis le livre
+        public AudienceEntity GetAudienceFromBook(int idBook)
+        {
+            string requete = @"SELECT audienceGroup FROM [Audience] INNER JOIN [Book] ON [Book].idAudience = Audience.idAudience WHERE Book.idBook = " +  idBook;
+            return base.GetOne(idBook, requete);
+        }
+
         public bool Delete(AudienceEntity toDelete)
         {
             throw new NotImplementedException();

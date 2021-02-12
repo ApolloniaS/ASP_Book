@@ -13,6 +13,7 @@ namespace Projet_ASP_books.Entities
         // au moment de l'upload: créer un dossier avec l'id de l'utilisateur (img/avatar/id) pr éviter d'écraser si même nom de fichier // ou renommer l'img
         private string _title, _summary, _picture;
         private DateTime _firstRelease;
+        private double _averageScore;
 
         public int IdBook { get => _idBook; set => _idBook = value; }
         public int IdAudience { get => _idAudience; set => _idAudience = value; }
@@ -20,5 +21,6 @@ namespace Projet_ASP_books.Entities
         public string Summary { get => _summary; set => _summary = value; }
         public DateTime FirstRelease { get => _firstRelease; set => _firstRelease = value; }
         public string Picture { get => _picture; set => _picture = value; }
+        public double AverageScore { get => _averageScore; set => _averageScore = value; }
     }
 }

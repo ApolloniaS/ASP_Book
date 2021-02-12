@@ -80,5 +80,7 @@
     <Build Include="dbo\StoredProcedure\User_Insert.sql" />
     <Build Include="dbo\Views\V_RandomBook.sql" />
     <Build Include="dbo\Views\V_RandomNb.sql" />
+    <Build Include="dbo\Views\V_MostRecentReviews.sql" />
+    <Build Include="dbo\Views\V_BookRating.sql" />
   </ItemGroup>
 </Project>

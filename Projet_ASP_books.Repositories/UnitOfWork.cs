@@ -16,6 +16,8 @@ namespace Projet_ASP_books.Repositories
         IConcreteRepository<AuthorEntity> _authorRepo;
         IConcreteRepository<ReviewEntity> _reviewRepo;
         IConcreteRepository<UserEntity> _userRepo;
+        IConcreteRepository<AudienceEntity> _audienceRepo;
+
 
         public UnitOfWork(string connectionString)
         {
@@ -23,6 +25,7 @@ namespace Projet_ASP_books.Repositories
             _authorRepo = new AuthorRepository(connectionString);
             _reviewRepo = new ReviewRepository(connectionString);
             _userRepo = new UserRepository(connectionString);
+            _audienceRepo = new AudienceRepository(connectionString);
         }
 
         // function pour reprendre un livre au hasard en page d'accueil
@@ -37,13 +40,13 @@ namespace Projet_ASP_books.Repositories
                     Title = rndBook.Title,
                     Picture = rndBook.Picture,
                     Summary = rndBook.Summary,
-                    AuthorFullName = String.Join(", ", ((AuthorRepository)_authorRepo).GetAuthorsFromBook(rndBook.IdBook).Select(a => a.FirstName + " " + a.LastName)),
-                    //auteur ne s'affiche pas ??
+                    AuthorFullName = String.Join(", ", ((AuthorRepository)_authorRepo).GetAuthorsFromBook(rndBook.IdBook).Select(a => a.FirstName + " " + a.LastName).ToList()),
                 }
 
                 ).ToList();
         }
 
+        // function qui cherche les reviews les + récentes à afficher 
         public List<RecentReviewModel> ShowRecentReviews()
         {
             return ((ReviewRepository)_reviewRepo).GetMostRecentReviews().Select
@@ -57,6 +60,23 @@ namespace Projet_ASP_books.Repositories
                     ReviewScore = reviews.ReviewScore,
                 }
                 )
+                .ToList();
+        }
+
+        // function qui sort tous les livres de la DB sur la page recherche
+        public List<FullBookInfoModel> GetAllBooks() 
+        {
+            return _bookRepo.Get().Select
+                (b => new FullBookInfoModel
+                {
+                    Title = b.Title,
+                    Summary = b.Summary,
+                    Picture = b.Picture,
+                    AverageScore = b.AverageScore,
+                    Audience = ((AudienceRepository)_audienceRepo).GetAudienceFromBook(b.IdBook).AudienceGroup,
+                    AuthorFullName = String.Join(", ", ((AuthorRepository)_authorRepo).GetAuthorsFromBook(b.IdBook).Select(a => a.FirstName + " " + a.LastName).ToList()),
+
+                })
                 .ToList();
         }
     }

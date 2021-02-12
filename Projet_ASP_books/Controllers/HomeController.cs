@@ -22,11 +22,10 @@ namespace Projet_ASP_books.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Books()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            BookViewModel bm = new BookViewModel();
+            return View(bm);
         }
     }
 }

@@ -26,23 +26,31 @@ namespace Projet_ASP_books.DAL.Repositories
         {
             if (Connect())
             {
-                //Ma variable de retour                 
-                //List<Utilisateur> retour = new List<Utilisateur>();            
-                // si pas de contraintes (Where T :....) ==> (List<T>)Activator.CreateInstance(typeof(List<T>));
-                List<T> retour = new List<T>();
-                //Création de commande
-                SqlCommand oCmd = new SqlCommand(requete, connection);
-                SqlDataReader oDr = oCmd.ExecuteReader();
-                //Je lis ligne par ligne
-                while (oDr.Read())
+                try
                 {
-                    retour.Add(MapTo(oDr));
-                }
-                //!!!!!!!!!!!!!!!!!WARNING : FERMETURE DE L'oDR OBLIGATOIRE!!!!!!!!!!!!!!!!
-                oDr.Close();
-                Disconnect();
-                //renvoyer la liste des utilisateurs de db
+                    //Ma variable de retour                 
+                    //List<Utilisateur> retour = new List<Utilisateur>();            
+                    // si pas de contraintes (Where T :....) ==> (List<T>)Activator.CreateInstance(typeof(List<T>));
+                    List<T> retour = new List<T>();
+                    //Création de commande
+                    SqlCommand oCmd = new SqlCommand(requete, connection);
+                    SqlDataReader oDr = oCmd.ExecuteReader();
+                    //Je lis ligne par ligne
+                    while (oDr.Read())
+                    {
+                        retour.Add(MapTo(oDr));
+                    }
+                    //!!!!!!!!!!!!!!!!!WARNING : FERMETURE DE L'oDR OBLIGATOIRE!!!!!!!!!!!!!!!!
+                    oDr.Close();
+                    Disconnect();
+                    //renvoyer la liste des utilisateurs de db
                 return retour;
+                }
+                catch (Exception ex)
+                {
+
+                    return null;
+                }
             }
             else
             {

@@ -26,6 +26,7 @@ namespace Projet_ASP_books.Repositories
             string requete = @"SELECT title, picture FROM Book INNER JOIN Review ON Book.idBook = Review.idBook WHERE Review.idReview = " + idReview;
             return base.GetOne(idReview, requete);
         }
+
         public bool Delete(BookEntity toDelete)
         {
             throw new NotImplementedException();
@@ -33,12 +34,15 @@ namespace Projet_ASP_books.Repositories
 
         public List<BookEntity> Get()
         {
-            throw new NotImplementedException();
+            string requete = "SELECT * FROM V_BookRating LEFT JOIN Audience ON Audience.idAudience = V_BookRating.idAudience";
+            return base.Get(requete);
         }
 
         public BookEntity GetOne(int PK)
         {
-            throw new NotImplementedException();
+            string requete = "SELECT * FROM V_BookRating LEFT JOIN Audience ON Audience.idAudience = V_BookRating.idAudience WHERE idBook = @id";
+            return base.GetOne(PK, requete);
+            
         }
 
         public bool Insert(BookEntity toInsert)

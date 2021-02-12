@@ -19,10 +19,10 @@ namespace Projet_ASP_books.Repositories
         public List<AuthorEntity> GetAuthorsFromBook(int idBook)
         {
 
-            string requete = @"SELECT * FROM [Author] INNER JOIN BookAuthor
-                             ON Author.idAuthor = BookAuthor.idAuthor
+            string requete = @"SELECT firstname, lastname FROM [Author] INNER JOIN BookAuthor
+                            ON Author.idAuthor = BookAuthor.idAuthor
                             WHERE BookAuthor.idBook =" + idBook;
-
+            
             return base.Get(requete);
         }
         public bool Delete(AuthorEntity toDelete)
