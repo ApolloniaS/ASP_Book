@@ -13,6 +13,19 @@ namespace Projet_ASP_books.Repositories
         public BookRepository(string connectionString) : base(connectionString)
         { 
         }
+
+        //fct ajoutée: afficher un livre au hasard (en List<> car p-e plus qu'un livre au final ?)
+        public List<BookEntity> GetOneRandom()
+        {
+            string requete = "SELECT * from V_RandomBook";
+            return base.Get(requete);
+        }
+        // fct de récup: reprendre les infos d'un livre àpd de la review
+        public BookEntity GetBookInfoFromReview(int idReview)
+        {
+            string requete = @"SELECT title, picture FROM Book INNER JOIN Review ON Book.idBook = Review.idBook WHERE Review.idReview = " + idReview;
+            return base.GetOne(idReview, requete);
+        }
         public bool Delete(BookEntity toDelete)
         {
             throw new NotImplementedException();
@@ -26,12 +39,6 @@ namespace Projet_ASP_books.Repositories
         public BookEntity GetOne(int PK)
         {
             throw new NotImplementedException();
-        }
-
-        public List<BookEntity> GetOneRandom()
-        {
-            string requete = "SELECT * from V_RandomBook";
-            return base.Get(requete);
         }
 
         public bool Insert(BookEntity toInsert)

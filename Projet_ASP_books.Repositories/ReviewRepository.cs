@@ -13,6 +13,12 @@ namespace Projet_ASP_books.Repositories
         public ReviewRepository(string connectionString) : base(connectionString)
         {
         }
+        // fct ajoutée: reprendre les 5 dernières reviews les plus récentes pour afficher sur page d'accueil
+        public List<ReviewEntity> GetMostRecentReviews()
+        {
+            string requete = "SELECT * FROM V_MostRecentReviews";
+            return base.Get(requete);
+        }
 
         public bool Delete(ReviewEntity toDelete)
         {

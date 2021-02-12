@@ -14,6 +14,12 @@ namespace Projet_ASP_books.Repositories
         {
         }
 
+        //fct de récup: username via review
+        public UserEntity GetUserNameFromReview(int idReview) {
+            string requete = @"SELECT [login] FROM [User] INNER JOIN [Review] ON [User].idUser = Review.idUser WHERE Review.idReview =" +  idReview;
+            return base.GetOne(idReview, requete);
+        }
+
         public bool Delete(UserEntity toDelete)
         {
             throw new NotImplementedException();

@@ -15,6 +15,16 @@ namespace Projet_ASP_books.Repositories
         {
         }
 
+        // fct de récup: auteurs via livre
+        public List<AuthorEntity> GetAuthorsFromBook(int idBook)
+        {
+
+            string requete = @"SELECT * FROM [Author] INNER JOIN BookAuthor
+                             ON Author.idAuthor = BookAuthor.idAuthor
+                            WHERE BookAuthor.idBook =" + idBook;
+
+            return base.Get(requete);
+        }
         public bool Delete(AuthorEntity toDelete)
         {
             throw new System.NotImplementedException();
@@ -30,15 +40,6 @@ namespace Projet_ASP_books.Repositories
             throw new System.NotImplementedException();
         }
 
-        public List<AuthorEntity> GetAuthorsFromBook(int idBook)
-        {
-            
-            string requete = @"SELECT * FROM [Author] INNER JOIN BookAuthor
-                             ON Author.idAuthor = BookAuthor.idAuthor
-                            WHERE BookAuthor.idBook =" + idBook;
-
-            return base.Get(requete);
-        }
         public bool Insert(AuthorEntity toInsert)
         {
             throw new System.NotImplementedException();
