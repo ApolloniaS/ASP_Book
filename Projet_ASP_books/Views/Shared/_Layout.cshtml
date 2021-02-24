@@ -32,18 +32,20 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li class="menu-active"><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#fact">Fact</a></li>
-                        <li><a href="#price">Price</a></li>
-                        <li><a href="#course">Course</a></li>
-                        <li class="menu-has-children">
-                            <a href="">Recherche</a>
-                            <ul>
-                                <li><a href="/Home/Books">Livres</a></li>
-                                <li><a href="elements.html">Reviews</a></li>
-                            </ul>
-                        </li>
+                        <li class="menu-active"><a href="/Home/Index">Home</a></li>
+                        <li><a href="#">Mon profil</a></li>
+                        <li><a href="/Home/Index#latestreviews">Derniers avis</a></li>
+                        <li><a href="/Home/Books">Livres</a></li>
+                        @if (Projet_ASP_books.Infra.SessionUtils.IsLogged)
+                        {
+                            <li><a href="/Home/Index#connexion">Se déconnecter</a></li>
+                            // /Account/logout
+                        }                        
+                        else 
+                        { 
+                            <li><a href="/Home/Index#connexion">Se connecter</a></li>
+                            
+                        }
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -56,13 +58,14 @@
             <div class="row">
                 <div class="col-lg-5 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
-                        <h6>About Us</h6>
+                        <h6>À propos</h6>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+                            Ce projet a été réalisé par Apollonia Sorella, stagiaire à Interface3, dans le cadre du cours d'ASP.NET.
+                            
                         </p>
                         <p class="footer-text">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
+                            Template&nbsp;:<br/>Copyright &copy;
                             <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>

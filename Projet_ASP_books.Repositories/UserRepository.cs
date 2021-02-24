@@ -20,6 +20,7 @@ namespace Projet_ASP_books.Repositories
             return base.GetOne(idReview, requete);
         }
 
+        
         public bool Delete(UserEntity toDelete)
         {
             throw new NotImplementedException();

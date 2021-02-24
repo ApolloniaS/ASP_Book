@@ -4,8 +4,7 @@
         <div class="row height align-items-center justify-content-center">
             <div class="col-lg-10">
                 <div class="generic-banner-content">
-                    <h2 class="text-white">The Generic Page</h2>
-                    <p class="text-white">It won’t be a bigger problem to find one video game lover in your <br> neighbor. Since the introduction of Virtual Game.</p>
+                    <p class="text-white"></p>
                 </div>
             </div>
         </div>
@@ -14,23 +13,48 @@
 <!-- Start Align Area -->
 <div class="whole-wrap">
     <div class="container">
+        <div class="mt-10 dflex">
+            @using (Html.BeginForm("Books", "Home", FormMethod.Get))
+            {
+
+                @*@Html.TextBox("userInput", null, new { @class = "single-input-custo" })*@
+
+                <input type="text" name="userInput" placeholder="Rechercher un livre..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rechercher un livre...'" class="single-input-custo">
+
+                <div class="default-select" id="default-select">
+                    <select name="sortBy">
+                        <option value="Title">@Html.ActionLink("Par titre", "Books", new { sortBy = ViewBag.sortByTitle })</option>
+                        <option value="auteur">@Html.ActionLink("Par auteur", "Books", new { sortBy = ViewBag.sortByAuthor })</option>
+                        <option value="xxx">@Html.ActionLink("Par édition", "Books", new { sortBy = ViewBag.sortByPublisher })</option>
+                        <option value="Rating">@Html.ActionLink("Par note moyenne", "Books", new { sortBy = ViewBag.sortByRating })</option>
+                    </select>
+                </div>
+                <button class="genric-btn primary">Lancer la recherche</button>
+            }
+        </div>
         @foreach (Projet_ASP_book.Models.FullBookInfoModel item in Model.BookCards)
         {
-    <div class="section-top-border">
-        <h3 class="mb-30">@item.Title</h3>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="img/elements/d.jpg" alt="" class="img-fluid">
+            <div class="section-top-border">
+                <h3 class="mb-30">@item.Title</h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="img/elements/d.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-9 mt-sm-20">
+                        <p>@item.Summary</p>
+                        <hr />
+                        <p>@item.AuthorFullName || @item.Audience || Note moyenne&nbsp;: @item.AverageScore </p>
+                        <hr />
+                        <p>Les lecteurs ont donné @item.NbReviews avis sur ce livre.</p>
+                        <a href="#" class="genric-btn primary e-large">Voir les avis</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-9 mt-sm-20">
-                <p>@item.Summary</p>
-                <p>@item.AuthorFullName || @item.Audience || Note moyenne&nbsp;: @item.AverageScore </p>
-                <a href="#" class="genric-btn primary e-large">Plus d'infos</a>
-            </div>
-        </div>
-    </div>
         }
-        <div class="section-top-border text-right">
+        @{
+            Html.RenderPartial("~/Views/Shared/_paginate.cshtml", new ViewDataDictionary { { "MaxPage", Model.MaxPage } });
+        }
+        @*<div class="section-top-border text-right">
             <h3 class="mb-30">Right Aligned</h3>
             <div class="row">
                 <div class="col-md-9">
@@ -41,7 +65,7 @@
                     <img src="img/elements/d.jpg" alt="" class="img-fluid">
                 </div>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>
 <!-- End Align Area -->

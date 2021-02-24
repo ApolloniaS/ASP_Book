@@ -1,4 +1,5 @@
 ﻿
+using NetFlask.Models;
 using Projet_ASP_book.Models;
 using Projet_ASP_books.DAL.Repositories;
 using Projet_ASP_books.Entities;
@@ -64,9 +65,9 @@ namespace Projet_ASP_books.Repositories
         }
 
         // function qui sort tous les livres de la DB sur la page recherche
-        public List<FullBookInfoModel> GetAllBooks() 
+        public List<FullBookInfoModel> GetAllBooks(string sortBy, string userInput, int page)
         {
-            return _bookRepo.Get().Select
+            return ((BookRepository)_bookRepo).SeparatePages(sortBy, userInput, page).Select
                 (b => new FullBookInfoModel
                 {
                     Title = b.Title,
@@ -75,9 +76,33 @@ namespace Projet_ASP_books.Repositories
                     AverageScore = b.AverageScore,
                     Audience = ((AudienceRepository)_audienceRepo).GetAudienceFromBook(b.IdBook).AudienceGroup,
                     AuthorFullName = String.Join(", ", ((AuthorRepository)_authorRepo).GetAuthorsFromBook(b.IdBook).Select(a => a.FirstName + " " + a.LastName).ToList()),
+                    NbReviews = ((ReviewRepository)_reviewRepo).GetAllReviewsFromABook(b.IdBook).Count,
 
                 })
                 .ToList();
         }
+
+        // FONCTION DU CONTROLLER DE LOGIN //
+
+        // inscription d'un nouvel utilisateur
+        public bool SignUp(UserModel um)
+        {
+            UserEntity userEntity = new UserEntity()
+            {
+                Firstname = um.FirstName,
+                Lastname = um.LastName,
+                Login = um.Login,
+                Password = um.Password
+            };
+
+            return _userRepo.Insert(userEntity);
+        }
+
+
+        // connexion d'un utilisateur existant
+        //public UserModel SignIn(LoginModel lm)
+        //{
+        //    //TODO
+        //}
     }
 }

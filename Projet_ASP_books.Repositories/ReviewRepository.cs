@@ -20,6 +20,14 @@ namespace Projet_ASP_books.Repositories
             return base.Get(requete);
         }
 
+        public List<ReviewEntity> GetAllReviewsFromABook(int idBook)
+        {
+            string requete = "SELECT * FROM Review WHERE idBook =" + idBook;
+            return base.Get(requete);
+        }
+
+        
+
         public bool Delete(ReviewEntity toDelete)
         {
             throw new NotImplementedException();

@@ -49,6 +49,11 @@
   font-weight: 300;
 }
 
+.dflex {
+display: flex;
+justify-content: space-between;
+}
+
 body {
   color: #777777;
   font-family: "Poppins", sans-serif;
@@ -245,6 +250,7 @@ td, th {
 .mt-10 {
   margin-top: 10px;
 }
+
 
 .mt-15 {
   margin-top: 15px;
@@ -1307,6 +1313,21 @@ h1, h2, h3, h4, h5, h6 {
 .single-input-primary:focus {
   outline: none;
   border: 1px solid #f53f51;
+}
+
+.single-input-custo {
+    display: block;
+    width: 50%;
+    line-height: 40px;
+    border: 1px solid transparent;
+    outline: none;
+    background: #f9f9ff;
+    padding: 0 20px;
+}
+
+.single-input-custo:focus {
+   outline: none;
+   border: 1px solid #f53f51;
 }
 
 .single-input-accent {

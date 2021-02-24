@@ -14,6 +14,7 @@ namespace Projet_ASP_books.Models
         UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
         private List<RandomBookModel> _rndmBookModel;
         private List<RecentReviewModel> _recentReviews;
+        private LoginRegisterModel _loginRegister;
 
         public HomeViewModel()
         {
@@ -27,5 +28,6 @@ namespace Projet_ASP_books.Models
 
         public List<RandomBookModel> RndmBookModel { get => _rndmBookModel; set => _rndmBookModel = value; }
         public List<RecentReviewModel> RecentReviews { get => _recentReviews; set => _recentReviews = value; }
+        public LoginRegisterModel LoginRegister { get => _loginRegister; set => _loginRegister = value; }
     }
 }

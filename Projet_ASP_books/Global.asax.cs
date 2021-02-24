@@ -17,5 +17,20 @@ namespace Projet_ASP_books
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_End()
+        { 
+            //TODO
+        }
+
+        protected void Session_Start()
+        {
+            //TODO
+        }
+
+        protected void Session_End()
+        {
+            //TODO 
+        }
     }
 }

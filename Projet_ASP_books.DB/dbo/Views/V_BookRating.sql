@@ -1,7 +1,7 @@
 ﻿CREATE VIEW dbo.V_BookRating
 AS
 SELECT        dbo.Book.idBook, dbo.Book.title, COALESCE (AVG(dbo.Review.reviewScore), 0) AS averageScore, dbo.Book.picture, dbo.Book.summary, dbo.Book.firstRelease, dbo.Book.idAudience
-FROM            dbo.Book INNER JOIN
+FROM            dbo.Book LEFT JOIN
                          dbo.Review ON dbo.Book.idBook = dbo.Review.idBook
 GROUP BY dbo.Book.idBook, dbo.Book.title, dbo.Book.picture, dbo.Book.summary, dbo.Book.firstRelease, dbo.Book.idAudience
 GO

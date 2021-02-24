@@ -1,0 +1,82 @@
+﻿
+<div style="text-align:center; padding-bottom: 50px;">
+    @{
+        int MaxPage = ViewData["MaxPage"] == null ? 0 : int.Parse(ViewData["MaxPage"].ToString());
+        int prev = 0, next = 0, current = 1;
+        
+        string URLprev = Request.Url.AbsoluteUri;
+        string URLnext = Request.Url.AbsoluteUri;
+        string URLClean = Request.Url.AbsoluteUri;
+        if (Request.QueryString.HasKeys())
+        {
+
+
+            if (Request.Params["page"] != null)
+            {
+                current = int.Parse(Request.QueryString["Page"]);
+                prev = current - 1;
+                next = current + 1;
+                URLClean = URLClean.Substring(0, URLClean.IndexOf("Page")).Replace("&", "");
+                URLprev = URLprev.Substring(0, URLprev.IndexOf("Page")) + "&Page=" + prev.ToString();
+                URLnext = URLnext.Substring(0, URLnext.IndexOf("Page")) + "&Page=" + next.ToString();
+            }
+            else
+            {
+                URLprev += "&Page=1";
+                URLnext += "&Page=2";
+            }
+
+        }
+        else
+        {
+            URLprev += "?Page=1";
+            URLnext += "?Page=2";
+        }
+
+        if (prev > 0)
+        {
+            <a class="genric-btn primary" href="@URLprev">Previous</a>
+        }
+        for (int i = current - 5; i < current && i < MaxPage; i++)
+        {
+            if (i > 0)
+            {
+                if (Request.QueryString.HasKeys())
+                {
+
+                    <a href="@URLClean&Page=@i" class="genric-btn primary-border circle">@i</a>
+                }
+                else
+                {
+                    <a href="@URLClean?Page=@i" class="genric-btn primary-border circle">@i</a>
+                }
+            }
+
+        }
+        if (Request.QueryString.HasKeys())
+        {
+            <a href="@URLClean&Page=@current" class="genric-btn primary-border circle">@current</a>
+        }
+        else
+        {
+            <a href="@URLClean?Page=@current" class="genric-btn primary-border circle">@current</a>
+        }
+        for (int i = current + 1; i < current + 5 && i < MaxPage; i++)
+        {
+            if (Request.QueryString.HasKeys())
+            {
+                <a href="@URLClean&Page=@i" class="genric-btn primary-border circle">@i</a>
+            }
+            else
+            {
+                <a href="@URLClean?Page=@i" class="genric-btn primary-border circle">@i</a>
+            }
+
+        }
+
+        if (next < MaxPage)
+        {
+            <a class="genric-btn primary" href="@URLnext">Next</a>
+        }
+    }
+</div>
