@@ -54,6 +54,8 @@ C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Antlr3.Runtime
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Newtonsoft.Json.dll
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_book.Models.dll
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.Repositories.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\System.Web.Helpers.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\System.Web.Mvc.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\System.Web.Optimization.dll
@@ -62,6 +64,10 @@ C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\System.Web.Web
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\System.Web.WebPages.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\System.Web.WebPages.Razor.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\WebGrease.dll
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.DAL.dll
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.Entities.dll
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_book.Models.pdb
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.Repositories.pdb
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\System.Web.Helpers.xml
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\System.Web.Mvc.xml
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\System.Web.Optimization.xml
@@ -72,6 +78,8 @@ C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\System.Web.Web
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Newtonsoft.Json.xml
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Antlr3.Runtime.pdb
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.DAL.pdb
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.Entities.pdb
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\fr\System.Web.Helpers.resources.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\fr\System.Web.Mvc.resources.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\fr\System.Web.Optimization.resources.dll
@@ -84,11 +92,3 @@ C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_A
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_ASP_books.csproj.CopyComplete
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_ASP_books.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_ASP_books.pdb
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_book.Models.dll
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.Repositories.dll
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.DAL.dll
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.Entities.dll
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_book.Models.pdb
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.Repositories.pdb
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.DAL.pdb
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.Entities.pdb

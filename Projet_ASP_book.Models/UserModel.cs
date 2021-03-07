@@ -10,7 +10,8 @@ namespace NetFlask.Models
     public class UserModel
     {
         int _idUser;
-        string _firstName, _lastName, _login, _password, _confirmPassword;
+        string _firstName, _lastName, _login;
+            //_password, _passwordConfirmation, _avatar;
 
         public int IdUser
         {
@@ -68,34 +69,36 @@ namespace NetFlask.Models
             }
         }
 
-        [Required]
-        [MaxLength(50)]
-        public string Password
-        {
-            get
-            {
-                return _password;
-            }
-            set
-            {
-                _password = value;
-            }
-        }
+        //[Required]
+        //[MaxLength(50)]
+        //public string Password
+        //{
+        //    get
+        //    {
+        //        return _password;
+        //    }
+        //    set
+        //    {
+        //        _password = value;
+        //    }
+        //}
 
-        [Required]
-        [MaxLength(50)]
-        [Compare("Password", ErrorMessage = "Les mots de passe ne sont pas identiques !")]
-        public string ConfirmPassword
-        {
-            get
-            {
-                return _confirmPassword;
-            }
+        //[Required]
+        //[MaxLength(50)]
+        //[Compare("Password", ErrorMessage = "Les mots de passe ne sont pas identiques !")]
+        //public string ConfirmPassword
+        //{
+        //    get
+        //    {
+        //        return _passwordConfirmation;
+        //    }
 
-            set
-            {
-                _confirmPassword = value;
-            }
-        }
+        //    set
+        //    {
+        //        _passwordConfirmation = value;
+        //    }
+        //}
+
+        //public string Avatar { get => _avatar; set => _avatar = value; }
     }
 }

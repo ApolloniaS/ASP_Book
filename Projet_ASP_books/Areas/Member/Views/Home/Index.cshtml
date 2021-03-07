@@ -1,8 +1,69 @@
-﻿
+﻿@model Projet_ASP_books.Models.UserProfileViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Profil";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Zone membre yay cc </h2>
+<section class="generic-banner relative">
+    <div class="container">
+        <div class="row height align-items-center">
+            <div style="width:150px; height:150px; background-color: black; margin-right: 15px;">place pour avatar</div>
+            <h1>Bonjour, xxx !</h1>
+            @*Mettre un slider avec des livres ou quoi ?*@
+        </div>
+        Éditer les infos du profil
+    </div>
+</section>
+
+<section class="section-gap info-area" id="connexion">
+    <div class="container">
+        <div class="title text-center">
+            <h1 class="mb-10">Vos infos</h1>
+
+            Nom:  @Model.UserInfoModel.LastName<br />
+            Prénom: @Model.UserInfoModel.FirstName <br />
+            <br />
+            Nom d'utilisateur: @Model.UserInfoModel.Login <br />
+            Informations sur vous: ..... @*//questionnaire ici ?//*@<br />
+
+            <h1 class="mb-10">Vous et vos lectures</h1>
+            @foreach (Projet_ASP_book.Models.ReadingStatusModel item in Model.ReadingStatus)
+            {
+
+                if (item.Status == "Lu")
+                {
+                    <div>
+                        Vous avez déjà lu...<br />
+                        @item.Title
+                    </div>
+                    <hr />
+                }
+
+                if (item.Status == "En cours de lecture")
+                {
+                    <div>
+                        Vous êtes en train de lire...<br />
+                        @item.Title
+                    </div>
+                    <hr />
+                }
+
+                if (item.Status == "À lire")
+                {
+                    <div>
+                        Vous aimeriez lire...<br />
+                        @item.Title
+                    </div>
+                    <hr />
+                }
+
+                
+
+            }
+            Vous avez donné votre avis sur...
+            
+        </div>
+
+    </div>
+</section>
 

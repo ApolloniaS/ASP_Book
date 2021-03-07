@@ -1,14 +1,45 @@
-﻿@ViewBag.Error
-<section class="generic-banner relative">
+﻿@model Projet_ASP_books.Models.LoginRegisterModel
+
+<!-- Start about Area -->
+<section class="section-gap info-area" id="connexion">
     <div class="container">
-        <div class="row height align-items-center justify-content-center">
-            <div class="col-lg-10">
-                <div class="generic-banner-content">
-                    <p class="text-white">yay la page de login !</p>
-                </div>
+        <div class="title text-center">
+            <h1 class="mb-10">Connexion</h1>
+        </div>
+        <form action=/Account/Login method="post">
+            @Html.AntiForgeryToken()
+            <div class="mt-10">
+                <input type="text" name="Login" placeholder="Nom d'utilisateur" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nom d\'utilisateur" required class="single-input">
+                @Html.ValidationMessageFor(model => model.LoginModel.Login, "", new { @class = "text-danger" })
             </div>
+            <div class="mt-10">
+                <input type="text" name="Password" placeholder="Mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mot de passe'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.LoginModel.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                @ViewBag.Error<br/>
+                <button type="submit" class="genric-btn primary">Se connecter</button>
+            </div>
+        </form>
+        <br />Vous n'êtes pas encore membre de la communauté&nbsp;?<br /><b>Rejoignez-nous et partagez vos lectures avec d'autres personnes qui partagent le même amour du livre que vous&nbsp;!</b>
+        <div class="mt-10">
+            <input type="text" name="first_name" placeholder="Prénom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'" required class="single-input">
+        </div>
+        <div class="mt-10">
+            <input type="text" name="last_name" placeholder="Nom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nom'" required class="single-input">
+        </div>
+        <div class="mt-10">
+            <input type="text" name="username" placeholder="Nom d'utilisateur" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nom d\'utilisateur" required class="single-input">
+        </div>
+        <div class="mt-10">
+            <input type="email" name="EMAIL" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required class="single-input">
+        </div>
+        <div class="mt-10">
+            <input type="text" name="password-confirm" placeholder="Confirmez le mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirmez le mot de passe'" required class="single-input">
+        </div>
+        <div class="mt-10">
+            <a href="#" class="genric-btn primary">S'inscrire</a>
         </div>
     </div>
 </section>
-
-
+<!-- End about Area -->

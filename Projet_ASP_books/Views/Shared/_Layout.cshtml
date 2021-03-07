@@ -38,12 +38,12 @@
                         <li><a href="/Home/Books">Livres</a></li>
                         @if (Projet_ASP_books.Infra.SessionUtils.IsLogged)
                         {
-                            <li><a href="/Home/Index#connexion">Se déconnecter</a></li>
+                            <li><a href="/Account/Logout">Se déconnecter</a></li>
                             // /Account/logout
                         }                        
                         else 
                         { 
-                            <li><a href="/Home/Index#connexion">Se connecter</a></li>
+                            <li><a href="/Account/Login">Se connecter</a></li>
                             
                         }
                     </ul>

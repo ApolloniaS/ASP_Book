@@ -131,6 +131,7 @@
     <Compile Include="Models\BookViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\LoginRegisterModel.cs" />
+    <Compile Include="Models\UserProfileViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -366,6 +367,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Member\Data\" />
+    <Folder Include="Areas\Member\Views\Profile\" />
     <Folder Include="Areas\Member\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

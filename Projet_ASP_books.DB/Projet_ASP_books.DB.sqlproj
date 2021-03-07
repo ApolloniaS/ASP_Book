@@ -82,5 +82,6 @@
     <Build Include="dbo\Views\V_RandomNb.sql" />
     <Build Include="dbo\Views\V_MostRecentReviews.sql" />
     <Build Include="dbo\Views\V_BookRating.sql" />
+    <Build Include="dbo\Views\V_ReadingStatus_1.sql" />
   </ItemGroup>
 </Project>

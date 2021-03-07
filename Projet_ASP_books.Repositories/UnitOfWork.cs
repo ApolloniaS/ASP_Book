@@ -18,6 +18,8 @@ namespace Projet_ASP_books.Repositories
         IConcreteRepository<ReviewEntity> _reviewRepo;
         IConcreteRepository<UserEntity> _userRepo;
         IConcreteRepository<AudienceEntity> _audienceRepo;
+        IConcreteRepository<UserBookEntity> _userBookRepo;
+
 
 
         public UnitOfWork(string connectionString)
@@ -27,9 +29,10 @@ namespace Projet_ASP_books.Repositories
             _reviewRepo = new ReviewRepository(connectionString);
             _userRepo = new UserRepository(connectionString);
             _audienceRepo = new AudienceRepository(connectionString);
+            _userBookRepo = new UserBookRepository(connectionString);
         }
 
-        // function pour reprendre un livre au hasard en page d'accueil
+        // function that shows a random book on the home page
         public List<RandomBookModel> GetRandomBook()
         {
             return ((BookRepository)_bookRepo).GetOneRandom()
@@ -47,7 +50,7 @@ namespace Projet_ASP_books.Repositories
                 ).ToList();
         }
 
-        // function qui cherche les reviews les + récentes à afficher 
+        // function looking for the latest reviews written
         public List<RecentReviewModel> ShowRecentReviews()
         {
             return ((ReviewRepository)_reviewRepo).GetMostRecentReviews().Select
@@ -64,7 +67,7 @@ namespace Projet_ASP_books.Repositories
                 .ToList();
         }
 
-        // function qui sort tous les livres de la DB sur la page recherche
+        // function displaying all books from DB on the search page
         public List<FullBookInfoModel> GetAllBooks(string sortBy, string userInput, int page)
         {
             return ((BookRepository)_bookRepo).SeparatePages(sortBy, userInput, page).Select
@@ -82,24 +85,56 @@ namespace Projet_ASP_books.Repositories
                 .ToList();
         }
 
-        // FONCTION DU CONTROLLER DE LOGIN //
-
-        // inscription d'un nouvel utilisateur
-        public bool SignUp(UserModel um)
+        #region Profile
+        // function to show basic info on user profile
+        public UserModel GetUserInfo()
         {
-            UserEntity userEntity = new UserEntity()
-            {
-                Firstname = um.FirstName,
-                Lastname = um.LastName,
-                Login = um.Login,
-                Password = um.Password
-            };
+            // TODO: adapt to get a user dynamically, rn it's only user with id 2 for testing purpose
 
-            return _userRepo.Insert(userEntity);
+            UserEntity userFromDB = _userRepo.GetOne(2);
+            UserModel um = new UserModel();
+            um.IdUser = userFromDB.IdUser;
+            um.FirstName = userFromDB.Firstname;
+            um.LastName = userFromDB.Lastname;
+            um.Login = userFromDB.Login;
+
+            return um;
         }
 
+        // function to retrieve the books read by user and their status
+        //(where false = to be read, true = already read, null = currently reading)
+        public List<ReadingStatusModel> GetBooksStatus()
+        {
+            return ((UserBookRepository)_userBookRepo).Get().Select
+                (rs => new ReadingStatusModel
+                {
+                    Title = rs.Title,
+                    Username = rs.Login,
+                    Status = rs.ReadingStatus
+                }
+                ).ToList();
+        }   
+        #endregion
 
-        // connexion d'un utilisateur existant
+
+        // CONTROLLER LOGIN AREA //
+
+        // new user connexion
+        //public bool SignUp(UserModel um)
+        //{
+        //    UserEntity userEntity = new UserEntity()
+        //    {
+        //        Firstname = um.FirstName,
+        //        Lastname = um.LastName,
+        //        Login = um.Login,
+        //        Password = um.Password
+        //    };
+
+        //    return _userRepo.Insert(userEntity);
+        //}
+
+
+        // existing user connexion
         //public UserModel SignIn(LoginModel lm)
         //{
         //    //TODO

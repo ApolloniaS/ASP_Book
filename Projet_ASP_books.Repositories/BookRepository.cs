@@ -59,7 +59,7 @@ namespace Projet_ASP_books.Repositories
 
             int booksShown = 5;
             int nextPage = (page - 1) * 5;
-            requete += $@"  OFFSET  {nextPage} ROWS 
+            requete += $@"  OFFSET {nextPage} ROWS 
                                 FETCH NEXT {booksShown} ROWS ONLY";
             return base.Get(requete);
         }

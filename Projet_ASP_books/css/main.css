@@ -54,6 +54,11 @@ display: flex;
 justify-content: space-between;
 }
 
+.img-fluid {
+    width: 250px;
+    height: 300px;
+}
+
 body {
   color: #777777;
   font-family: "Poppins", sans-serif;

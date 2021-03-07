@@ -18,10 +18,10 @@ namespace Projet_ASP_books.Models
 
         public HomeViewModel()
         {
-            // affiche le livre au hasard
+            // displays the random book
             RndmBookModel = uow.GetRandomBook();
 
-            // affiche les reviews les plus récentes
+            // shows latest reviews
             RecentReviews = uow.ShowRecentReviews();
 
         }

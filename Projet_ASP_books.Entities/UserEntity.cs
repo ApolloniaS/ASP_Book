@@ -12,7 +12,7 @@ namespace Projet_ASP_books.Entities
         private string _firstname, _lastname, _email, _login, _password, _avatar;
         private bool _isAdmin;
         private DateTime _birthdate;
-        private int _salt;
+        private string _salt;
 
         public int IdUser { get => _idUser; set => _idUser = value; }
         public string Firstname { get => _firstname; set => _firstname = value; }
@@ -22,7 +22,7 @@ namespace Projet_ASP_books.Entities
         public string Password { get => _password; set => _password = value; }
         public bool IsAdmin { get => _isAdmin; set => _isAdmin = value; }
         public DateTime Birthdate { get => _birthdate; set => _birthdate = value; }
-        public int Salt { get => _salt; set => _salt = value; }
+        public string Salt { get => _salt; set => _salt = value; }
         public string Avatar { get => _avatar; set => _avatar = value; }
     }
 }

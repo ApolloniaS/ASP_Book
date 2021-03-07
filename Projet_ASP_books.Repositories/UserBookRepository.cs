@@ -21,7 +21,8 @@ namespace Projet_ASP_books.Repositories
 
         public List<UserBookEntity> Get()
         {
-            throw new NotImplementedException();
+            string requete = @"SELECT * FROM V_ReadingStatus";
+            return base.Get(requete);
         }
 
         public UserBookEntity GetOne(int PK)

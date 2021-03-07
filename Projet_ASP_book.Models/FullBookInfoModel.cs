@@ -12,6 +12,7 @@ namespace Projet_ASP_book.Models
         private string _picture, _title, _summary, _audience, _authorFullName;
         private double _averageScore;
         private DateTime _firstRelease;
+        private ReviewModel _review;
 
         public int IdBook { get => _idBook; set => _idBook = value; }
         public string Picture { get => _picture; set => _picture = value; }
@@ -22,5 +23,6 @@ namespace Projet_ASP_book.Models
         public string AuthorFullName { get => _authorFullName; set => _authorFullName = value; }
         public double AverageScore { get => _averageScore; set => _averageScore = value; }
         public int NbReviews { get => _nbReviews; set => _nbReviews = value; }
+        public ReviewModel Review { get => _review; set => _review = value; }
     }
 }

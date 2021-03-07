@@ -18,7 +18,6 @@ namespace Projet_ASP_books.Models
         {
             //BookCards = uow.GetAllBooks();
 
-            
         }
         public void paginateReviews(string sortBy = "", string userInput = null, int page = 1)
         {

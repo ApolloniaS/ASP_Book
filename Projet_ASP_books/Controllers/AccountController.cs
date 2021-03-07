@@ -21,17 +21,19 @@ namespace Projet_ASP_books.Controllers
         }
 
         [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpGet]
         public ActionResult Logout()
         {
             Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -41,13 +43,13 @@ namespace Projet_ASP_books.Controllers
             {
                 if (lm.Login != "aSorella" && lm.Password != "123477")
                 {
-                    ViewBag.Error = "Mauvais mdp";
+                    ViewBag.Error = "Le mot de passe ou le nom d'utilisateur entré est erroné";
                     return View();
                 }
                 else
                 {
                     SessionUtils.IsLogged = true;
-                    return RedirectToAction("Index", "Home", new { area = "Membre" });
+                    return RedirectToAction("Index", "Home", new { area = "Member" });
                 }
             }
             else

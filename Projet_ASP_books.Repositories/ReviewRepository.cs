@@ -22,7 +22,7 @@ namespace Projet_ASP_books.Repositories
 
         public List<ReviewEntity> GetAllReviewsFromABook(int idBook)
         {
-            string requete = "SELECT * FROM Review WHERE idBook =" + idBook;
+            string requete = "SELECT * FROM V_UserReview WHERE idBook =" + idBook;
             return base.Get(requete);
         }
 

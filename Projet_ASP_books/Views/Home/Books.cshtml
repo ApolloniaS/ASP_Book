@@ -2,20 +2,21 @@
 <section class="generic-banner relative">
     <div class="container">
         <div class="row height align-items-center justify-content-center">
-            <div class="col-lg-10">
+            
                 <div class="generic-banner-content">
-                    <p class="text-white"></p>
+                    <p class="text-white">Vous ne savez pas quoi lire ?<br/> Faites une recherche et accédez aux avis d'autres lecteurs chevronnés !</p>
                 </div>
-            </div>
+
         </div>
     </div>
 </section>
 <!-- Start Align Area -->
 <div class="whole-wrap">
     <div class="container">
-        <div class="mt-10 dflex">
+        
             @using (Html.BeginForm("Books", "Home", FormMethod.Get))
             {
+        <div class="mt-10 dflex">
 
                 @*@Html.TextBox("userInput", null, new { @class = "single-input-custo" })*@
 
@@ -30,15 +31,15 @@
                     </select>
                 </div>
                 <button class="genric-btn primary">Lancer la recherche</button>
+        </div> 
             }
-        </div>
         @foreach (Projet_ASP_book.Models.FullBookInfoModel item in Model.BookCards)
         {
             <div class="section-top-border">
                 <h3 class="mb-30">@item.Title</h3>
                 <div class="row">
                     <div class="col-md-3">
-                        <img src="img/elements/d.jpg" alt="" class="img-fluid">
+                        <img src="@item.Picture" alt="" class="img-fluid">
                     </div>
                     <div class="col-md-9 mt-sm-20">
                         <p>@item.Summary</p>

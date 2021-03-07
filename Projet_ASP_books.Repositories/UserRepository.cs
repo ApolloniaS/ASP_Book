@@ -33,7 +33,8 @@ namespace Projet_ASP_books.Repositories
 
         public UserEntity GetOne(int PK)
         {
-            throw new NotImplementedException();
+            string requete = "SELECT * FROM [User] WHERE idUser = @id";
+            return base.GetOne(PK, requete);
         }
 
         public bool Insert(UserEntity toInsert)

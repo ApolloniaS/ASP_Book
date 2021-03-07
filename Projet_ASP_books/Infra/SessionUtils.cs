@@ -1,4 +1,4 @@
-﻿using NetFlask.Models;
+﻿using Projet_ASP_books.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +24,11 @@ namespace Projet_ASP_books.Infra
             set { HttpContext.Current.Session["logged"] = value; }
         }
 
-        public static UserModel ConnectedUser
+        public static UserProfileViewModel ConnectedUser
         {
             get
             {
-                return (UserModel)HttpContext.Current.Session["ConnectedUser"];
+                return (UserProfileViewModel)HttpContext.Current.Session["ConnectedUser"];
             }
 
             set { HttpContext.Current.Session["ConnectedUser"] = value; }

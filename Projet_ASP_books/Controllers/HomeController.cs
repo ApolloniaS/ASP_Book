@@ -15,12 +15,6 @@ namespace Projet_ASP_books.Controllers
             return View(hm);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
 
         public ActionResult Books(string sortBy = "", string userInput = null, int page = 1) 
         {
@@ -32,5 +26,13 @@ namespace Projet_ASP_books.Controllers
             bm.paginateReviews(sortBy, userInput, page);
             return View(bm);
         }
+
+        public ActionResult Reviews()
+        {
+            BookViewModel bm = new BookViewModel();
+            return View(bm);
+        }
+
+
     }
 }
