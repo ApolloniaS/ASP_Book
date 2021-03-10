@@ -20,19 +20,14 @@ namespace Projet_ASP_books.Controllers
         {
             ViewBag.sortByTitle = String.IsNullOrEmpty(sortBy) ? "Title" : "";
             ViewBag.sortByAuthor = sortBy == "Author" ? "author_desc" : "";
-            ViewBag.sortByPublisher = sortBy == "Publisher" ? "publisher_desc" : "";
-            ViewBag.sortByRating = sortBy == "Rating" ? "averageScore_desc" : ""; //à adapter !
+            ViewBag.sortByPublisher = sortBy == "Publisher" ? "publisher_desc" : "";//à adapter !
+            ViewBag.sortByRating = sortBy == "Rating" ? "averageScore_desc" : ""; 
             BookViewModel bm = new BookViewModel();
             bm.paginateReviews(sortBy, userInput, page);
             return View(bm);
         }
 
-        public ActionResult Reviews()
-        {
-            BookViewModel bm = new BookViewModel();
-            return View(bm);
-        }
-
+        
 
     }
 }

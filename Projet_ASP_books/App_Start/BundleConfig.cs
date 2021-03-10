@@ -43,15 +43,17 @@ namespace Projet_ASP_books
                       "~/js/hoverIntent.js",
                       "~/js/superfish.min.js",
                       "~/js/jquery.ajaxchimp.min.js",
+                      "~/js/jquery.counterup.min.js",
                       "~/js/jquery.magnific-popup.min.js",
                       "~/js/owl.carousel.min.js",
                       "~/js/jquery.sticky.js",
                       "~/js/jquery.nice-select.min.js",
                       "~/js/parallax.min.js",
                       "~/js/waypoints.min.js",
-                      "~/js/jquery.counterup.min.js",
                       "~/js/mail-script.js",
                       "~/js/main.js"));
+
+          
         }
     }
 }

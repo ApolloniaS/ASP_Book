@@ -1,5 +1,9 @@
 
-$(document).ready(function(){
+//
+$(".popup-custo").click(function () {
+$(".test").css("display", "block")});
+
+$(document).ready(function () {
 	"use strict";
 
 	var window_width 	 = $(window).width(),
@@ -22,7 +26,6 @@ $(document).ready(function(){
         enabled:true
         }
     });
-
 
     $('.play-btn').magnificPopup({
         type: 'iframe',

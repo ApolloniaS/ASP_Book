@@ -1,11 +1,34 @@
 ﻿@model Projet_ASP_books.Models.BookViewModel
+
+<style>
+    .review-container {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 1 !important;
+    }
+
+    .reviews {
+        position: absolute !important;
+        width: 90%;
+        height: 50%;
+        top: 50% !important;
+        left: 50% !important;
+        background-color: white;
+        transform: translate(-50%, -50%);
+    }
+</style>
 <section class="generic-banner relative">
     <div class="container">
         <div class="row height align-items-center justify-content-center">
-            
-                <div class="generic-banner-content">
-                    <p class="text-white">Vous ne savez pas quoi lire ?<br/> Faites une recherche et accédez aux avis d'autres lecteurs chevronnés !</p>
-                </div>
+
+            <div class="generic-banner-content">
+                <p class="text-white">Vous ne savez pas quoi lire ?<br /> Faites une recherche et accédez aux avis d'autres lecteurs chevronnés !</p>
+            </div>
 
         </div>
     </div>
@@ -13,10 +36,10 @@
 <!-- Start Align Area -->
 <div class="whole-wrap">
     <div class="container">
-        
-            @using (Html.BeginForm("Books", "Home", FormMethod.Get))
-            {
-        <div class="mt-10 dflex">
+
+        @using (Html.BeginForm("Books", "Home", FormMethod.Get))
+        {
+            <div class="mt-10 dflex">
 
                 @*@Html.TextBox("userInput", null, new { @class = "single-input-custo" })*@
 
@@ -31,9 +54,9 @@
                     </select>
                 </div>
                 <button class="genric-btn primary">Lancer la recherche</button>
-        </div> 
-            }
-        @foreach (Projet_ASP_book.Models.FullBookInfoModel item in Model.BookCards)
+            </div>
+        }
+        @foreach (Projet_ASP_book.Models.FullBookModel item in Model.BookCards)
         {
             <div class="section-top-border">
                 <h3 class="mb-30">@item.Title</h3>
@@ -47,26 +70,42 @@
                         <p>@item.AuthorFullName || @item.Audience || Note moyenne&nbsp;: @item.AverageScore </p>
                         <hr />
                         <p>Les lecteurs ont donné @item.NbReviews avis sur ce livre.</p>
-                        <a href="#" class="genric-btn primary e-large">Voir les avis</a>
+                        <button class="genric-btn primary e-large popup-custo">Voir les avis</button>
+                        <div class="review-container">
+                            <div class="reviews">Le [date], [username] a écrit: @item.Review.ReviewContent</div>
+                            @*changer le reviewcontent en liste de reviews et itérer dessus ?*@
+                        
+                        </div>
                     </div>
+
                 </div>
             </div>
         }
+
         @{
             Html.RenderPartial("~/Views/Shared/_paginate.cshtml", new ViewDataDictionary { { "MaxPage", Model.MaxPage } });
         }
         @*<div class="section-top-border text-right">
-            <h3 class="mb-30">Right Aligned</h3>
-            <div class="row">
-                <div class="col-md-9">
-                    <p class="text-right">Over time, even the most sophisticated, memory packed computer can begin to run slow if we don’t do something to prevent it. The reason why has less to do with how computers are made and how they age and more to do with the way we use them. You see, all of the daily tasks that we do on our PC from running programs to downloading and deleting software can make our computer sluggish. To keep this from happening, you need to understand the reasons why your PC is getting slower and do something to keep your PC running at its best. You can do this through regular maintenance and PC performance optimization programs</p>
-                    <p class="text-right">Before we discuss all of the things that could be affecting your PC’s performance, let’s talk a little about what symptoms</p>
+                <h3 class="mb-30">Right Aligned</h3>
+                <div class="row">
+                    <div class="col-md-9">
+                        <p class="text-right">Over time, even the most sophisticated, memory packed computer can begin to run slow if we don’t do something to prevent it. The reason why has less to do with how computers are made and how they age and more to do with the way we use them. You see, all of the daily tasks that we do on our PC from running programs to downloading and deleting software can make our computer sluggish. To keep this from happening, you need to understand the reasons why your PC is getting slower and do something to keep your PC running at its best. You can do this through regular maintenance and PC performance optimization programs</p>
+                        <p class="text-right">Before we discuss all of the things that could be affecting your PC’s performance, let’s talk a little about what symptoms</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="img/elements/d.jpg" alt="" class="img-fluid">
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <img src="img/elements/d.jpg" alt="" class="img-fluid">
-                </div>
-            </div>
-        </div>*@
+            </div>*@
     </div>
 </div>
+
+<script>
+    const buttons = document.querySelectorAll('.popup-custo');
+
+    for (const button of buttons) {
+        button.addEventListener('click', function (e) {
+            e.target.parentNode.children[6].style.display = 'block';
+        });
+    }</script>
 <!-- End Align Area -->

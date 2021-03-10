@@ -32,6 +32,7 @@ namespace Projet_ASP_books.Repositories
             _userBookRepo = new UserBookRepository(connectionString);
         }
 
+        #region Home Page
         // function that shows a random book on the home page
         public List<RandomBookModel> GetRandomBook()
         {
@@ -66,13 +67,19 @@ namespace Projet_ASP_books.Repositories
                 )
                 .ToList();
         }
+        #endregion
 
+        #region Book Page
         // function displaying all books from DB on the search page
-        public List<FullBookInfoModel> GetAllBooks(string sortBy, string userInput, int page)
+        public List<FullBookModel> GetAllBooks(string sortBy, string userInput, int page)
         {
             return ((BookRepository)_bookRepo).SeparatePages(sortBy, userInput, page).Select
-                (b => new FullBookInfoModel
+                (b => new FullBookModel
                 {
+                    Review = new ReviewModel() {
+                        ReviewContent = String.Join("\n", ((ReviewRepository)_reviewRepo).GetAllReviewsFromABook(b.IdBook).Select(r => r.ReviewContent)),
+                        IdBook = b.IdBook,
+                    },
                     Title = b.Title,
                     Summary = b.Summary,
                     Picture = b.Picture,
@@ -84,12 +91,22 @@ namespace Projet_ASP_books.Repositories
                 })
                 .ToList();
         }
+        #endregion
+
+        #region Reviews
+
+        List<ReviewModel> showReviewsOfABook() {
+            return null;
+        }
+        
+        #endregion
 
         #region Profile
         // function to show basic info on user profile
         public UserModel GetUserInfo()
         {
             // TODO: adapt to get a user dynamically, rn it's only user with id 2 for testing purpose
+            // pass param to function here and then pass sessionUtils as param in view ??
 
             UserEntity userFromDB = _userRepo.GetOne(2);
             UserModel um = new UserModel();

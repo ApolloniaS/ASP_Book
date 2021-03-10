@@ -12,7 +12,7 @@ namespace Projet_ASP_books.Models
     {
         UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
 
-        private List<FullBookInfoModel> _bookCards;
+        private List<FullBookModel> _bookCards;
         private int _maxBook, _maxPage;
         public BookViewModel()
         {
@@ -31,7 +31,7 @@ namespace Projet_ASP_books.Models
 
         }
 
-        public List<FullBookInfoModel> BookCards { get => _bookCards; set => _bookCards = value; }
+        public List<FullBookModel> BookCards { get => _bookCards; set => _bookCards = value; }
         public int MaxBook { get => _maxBook; set => _maxBook = value; }
         public int MaxPage { get => _maxPage; set => _maxPage = value; }
     }
