@@ -1,0 +1,23 @@
+﻿** Met en surbrillance
+     Tables à reconstruire
+       Aucun
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Modifier
+       [dbo].[User] (Table)
+
+** Actions de support
+     Actualiser
+       [dbo].[V_MostRecentReviews] (Vue)
+       [dbo].[V_ReadingStatus] (Vue)
+       [dbo].[V_UserReview] (Vue)
+       [dbo].[User_Insert] (Procédure)
+
+La colonne birthdate de la table [dbo].[User] doit être modifiée de NULL à NOT NULL. Si la table contient des données, le script ALTER peut ne pas fonctionner. Pour éviter ce problème, vous devez ajouter des valeurs à cette colonne pour toutes les lignes, marquer la colonne comme autorisant les valeurs NULL ou activer la génération de smart-defaults en tant qu'option de déploiement.
+

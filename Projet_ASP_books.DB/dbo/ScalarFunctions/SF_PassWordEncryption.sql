@@ -1,9 +1,9 @@
 ﻿CREATE FUNCTION [dbo].[SF_PassWordEncryption]
 (
-	@password NVARCHAR(32),
+	@password NVARCHAR(MAX),
 	@salt CHAR(8)
 )
-RETURNS VARBINARY(32)
+RETURNS VARBINARY(MAX)
 AS
 BEGIN
 	RETURN HASHBYTES('SHA2_256', CONCAT(SUBSTRING(@salt,0,4), @password, SUBSTRING(@salt, 4,4)))

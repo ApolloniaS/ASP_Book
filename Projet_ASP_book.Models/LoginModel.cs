@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetFlask.Models
+namespace Projet_ASP_books.Models
 {
     public class LoginModel
     {

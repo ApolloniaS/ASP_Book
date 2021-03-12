@@ -1,5 +1,4 @@
-﻿using NetFlask.Models;
-using Projet_ASP_books.Infra;
+﻿using Projet_ASP_books.Infra;
 using Projet_ASP_books.Models;
 using Projet_ASP_books.Repositories;
 using System;
@@ -34,7 +33,7 @@ namespace Projet_ASP_books.Controllers
             return View();
         }
 
-        
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -61,30 +60,32 @@ namespace Projet_ASP_books.Controllers
             }
 
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(UserModel um)
+        {
+            if (ModelState.IsValid)
+            {
+                if (uow.SignUp(um))
+                {
+                    SessionUtils.IsLogged = true;
+                    SessionUtils.ConnectedUser = um;
+                    return RedirectToAction("Index", "Home", new { area = "Member" });
+                }
+                else
+                {
+                    ViewBag.Error = "Erreur Login/Password";
+                    return View("Login");
+                }
+            }
+            else
+            {
+                ViewBag.Error = "Erreur Login/Password";
+                return View("Login");
+            }
+        }
     }
 
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public ActionResult Register(UserModel um)
-    //{
-    //    if (ModelState.IsValid)
-    //    {
-    //        if (uow.SignUp(um))
-    //        {
-    //            SessionUtils.IsLogged = true;
-    //            SessionUtils.ConnectedUser = um;
-    //            return RedirectToAction("Index", "Home", new { area = "Membre" });
-    //        }
-    //        else
-    //        {
-    //            ViewBag.Error = "Erreur Login/Password";
-    //            return View("Login");
-    //        }
-    //    }
-    //    else
-    //    {
-    //        ViewBag.Error = "Erreur Login/Password";
-    //        return View("Login");
-    //    }
-    //}
+        
 }

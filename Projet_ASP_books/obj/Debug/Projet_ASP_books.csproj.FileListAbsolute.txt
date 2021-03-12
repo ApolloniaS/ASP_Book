@@ -1,5 +1,3 @@
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_ASP_books.csprojAssemblyReference.cache
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_ASP_books.csproj.CoreCompileInputs.cache
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.dll.config
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\Projet_ASP_books.pdb
@@ -89,6 +87,8 @@ C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\fr\System.Web.
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\fr\System.Web.WebPages.resources.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\fr\System.Web.WebPages.Deployment.resources.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\bin\fr\System.Web.WebPages.Razor.resources.dll
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_ASP_books.csprojAssemblyReference.cache
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_ASP_books.csproj.CoreCompileInputs.cache
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_ASP_books.csproj.CopyComplete
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_ASP_books.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books\obj\Debug\Projet_ASP_books.pdb

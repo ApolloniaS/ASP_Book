@@ -11,7 +11,9 @@ namespace Projet_ASP_books.Models
     {
         int _idUser;
         string _firstName, _lastName, _login;
-        string _password, _passwordConfirmation, _avatar;
+        string _password, _passwordConfirmation, _avatar, _email;
+        DateTime _birthdate;
+        bool _isAdmin;
 
         public int IdUser
         {
@@ -99,6 +101,23 @@ namespace Projet_ASP_books.Models
             }
         }
 
+        [EmailAddress]
+        [DataType(DataType.EmailAddress)]
+        public string Email
+        {
+            get
+            {
+                return _email;
+            }
+
+            set
+            {
+                _email = value;
+            }
+        }
+
         public string Avatar { get => _avatar; set => _avatar = value; }
+        public DateTime Birthdate { get => _birthdate; set => _birthdate = value; }
+        public bool IsAdmin { get => _isAdmin; set => _isAdmin = value; }
     }
 }

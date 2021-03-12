@@ -21,12 +21,12 @@ namespace Projet_ASP_books.Repositories
         }
 
         // check login
-        public UserEntity GetFromLogin(string login )
+        public UserEntity GetFromLogin(string login)
         {
             //TODO : add the SP to check if the password matches the one in the DB
             Dictionary<string, object> p = new Dictionary<string, object>();
-            p.Add("login", login); 
-            return base.Get( "Select * from [User] where Login=@login",p).FirstOrDefault();
+            p.Add("login", login);
+            return base.Get("Select * from [User] where Login=@login", p).FirstOrDefault();
         }
 
         
@@ -48,7 +48,16 @@ namespace Projet_ASP_books.Repositories
 
         public bool Insert(UserEntity toInsert)
         {
-            throw new NotImplementedException();
+            string requete = @"EXECUTE [dbo].[User_Insert]
+            @firstname,
+            @lastname,
+            @email,
+            @avatar,
+            @login,
+            @isAdmin,
+            @birthdate,
+            @password";
+            return base.Insert(toInsert, requete);
         }
 
         public bool Update(UserEntity toUpdate)

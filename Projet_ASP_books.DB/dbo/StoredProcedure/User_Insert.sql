@@ -5,14 +5,16 @@
     @email NVARCHAR(323),
     @avatar NVARCHAR(50) = NULL,
     @login NVARCHAR(50),
-    @password NVARCHAR(50),
     @isAdmin BIT,
-    @birthdate DATETIME2,
-    @salt CHAR(8) 
+    @birthdate DATETIME2 = NULL,
+    @password NVARCHAR(MAX)
 AS
-	SET @salt = [dbo].SF_GenerateSalt()
+	DECLARE @idUser INT, @salt CHAR(8)
+    SET @salt = [dbo].SF_GenerateSalt()
     
-    INSERT INTO [User] ([firstname], [lastname], [email], [avatar], [login], [password], [isAdmin], [birthdate], [salt])
-    OUTPUT inserted.idUser
-    VALUES (@firstname, @lastname, @email, @avatar, @login, @password, @isAdmin, @birthdate,[dbo].SF_PassWordEncryption(@password, @salt)) 
+    INSERT INTO [User] ([firstname], [lastname], [email], [avatar], [login], [isAdmin], [birthdate], [salt], [password])
+    --OUTPUT inserted.idUser
+    VALUES (@firstname, @lastname, @email, @avatar, @login, @isAdmin, @birthdate, @salt, [dbo].SF_PassWordEncryption(@password, @salt)) 
+    SET @idUser = @@IDENTITY
+
 

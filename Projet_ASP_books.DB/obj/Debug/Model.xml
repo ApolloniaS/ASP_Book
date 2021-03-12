@@ -44,6 +44,22 @@
 				</Entry>
 			</Relationship>
 		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[0]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[User]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[User].[isAdmin]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
+		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Audience]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="Columns">
@@ -87,7 +103,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Author]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -149,8 +165,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Book]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -260,8 +276,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[BookAuthor]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -304,10 +320,10 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[BookCategory]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -350,9 +366,9 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Category]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -397,7 +413,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
 		</Element>
 		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_price]">
 			<Property Name="CheckExpressionScript">
@@ -413,7 +429,7 @@
 					<References Name="[dbo].[PublisherBook]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
 		</Element>
 		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_reviewContent]">
 			<Property Name="CheckExpressionScript">
@@ -429,7 +445,7 @@
 					<References Name="[dbo].[Review]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
 		</Element>
 		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_reviewScore]">
 			<Property Name="CheckExpressionScript">
@@ -445,7 +461,7 @@
 					<References Name="[dbo].[Review]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
 		</Element>
 		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_user_birthdate]">
 			<Property Name="CheckExpressionScript">
@@ -454,22 +470,6 @@
 			<Relationship Name="CheckExpressionDependencies">
 				<Entry>
 					<References Name="[dbo].[User].[birthdate]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[User]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
-		</Element>
-		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_User_Email]">
-			<Property Name="CheckExpressionScript">
-				<Value><![CDATA[[Email] like '___%@___%.__%']]></Value>
-			</Property>
-			<Relationship Name="CheckExpressionDependencies">
-				<Entry>
-					<References Name="[dbo].[User].[email]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
@@ -516,7 +516,7 @@
 					<References Name="[dbo].[Audience]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="7" />
+			<AttachedAnnotation Disambiguator="8" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_BookAuthor_Author]">
 			<Relationship Name="Columns">
@@ -539,7 +539,7 @@
 					<References Name="[dbo].[Author]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="9" />
+			<AttachedAnnotation Disambiguator="10" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_BookAuthor_Book]">
 			<Relationship Name="Columns">
@@ -562,7 +562,7 @@
 					<References Name="[dbo].[Book]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="10" />
+			<AttachedAnnotation Disambiguator="11" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_BookCategory_Book]">
 			<Relationship Name="Columns">
@@ -585,7 +585,7 @@
 					<References Name="[dbo].[Book]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="13" />
+			<AttachedAnnotation Disambiguator="14" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_BookCategory_Category]">
 			<Relationship Name="Columns">
@@ -608,7 +608,7 @@
 					<References Name="[dbo].[Category]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="14" />
+			<AttachedAnnotation Disambiguator="15" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_PublisherBook_Book]">
 			<Relationship Name="Columns">
@@ -788,7 +788,7 @@
 					<References Name="[dbo].[Audience]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="3" />
+			<AttachedAnnotation Disambiguator="4" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Author]">
 			<Relationship Name="ColumnSpecifications">
@@ -807,7 +807,7 @@
 					<References Name="[dbo].[Author]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="4" />
+			<AttachedAnnotation Disambiguator="5" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Book]">
 			<Relationship Name="ColumnSpecifications">
@@ -826,7 +826,7 @@
 					<References Name="[dbo].[Book]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="6" />
+			<AttachedAnnotation Disambiguator="7" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_BookAuthor]">
 			<Property Name="IsClustered" Value="False" />
@@ -855,7 +855,7 @@
 					<References Name="[dbo].[BookAuthor]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="8" />
+			<AttachedAnnotation Disambiguator="9" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_BookCategory]">
 			<Relationship Name="ColumnSpecifications">
@@ -883,7 +883,7 @@
 					<References Name="[dbo].[BookCategory]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="12" />
+			<AttachedAnnotation Disambiguator="13" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Category]">
 			<Relationship Name="ColumnSpecifications">
@@ -902,7 +902,7 @@
 					<References Name="[dbo].[Category]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="15" />
+			<AttachedAnnotation Disambiguator="16" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Publisher]">
 			<Relationship Name="ColumnSpecifications">
@@ -1189,7 +1189,7 @@
 				</Entry>
 			</Relationship>
 			<AttachedAnnotation Disambiguator="30" />
-			<AttachedAnnotation Disambiguator="16" />
+			<AttachedAnnotation Disambiguator="17" />
 			<AttachedAnnotation Disambiguator="22" />
 			<AttachedAnnotation Disambiguator="23" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
@@ -1384,8 +1384,8 @@
 				</Entry>
 			</Relationship>
 			<AttachedAnnotation Disambiguator="32" />
-			<AttachedAnnotation Disambiguator="17" />
 			<AttachedAnnotation Disambiguator="18" />
+			<AttachedAnnotation Disambiguator="19" />
 			<AttachedAnnotation Disambiguator="25" />
 			<AttachedAnnotation Disambiguator="26" />
 		</Element>
@@ -1475,10 +1475,10 @@ BEGIN
 END]]></Value>
 						</Property>
 						<Annotation Type="SysCommentsObjectAnnotation">
-							<Property Name="Length" Value="227" />
+							<Property Name="Length" Value="229" />
 							<Property Name="StartLine" Value="1" />
 							<Property Name="StartColumn" Value="1" />
-							<Property Name="HeaderContents" Value="CREATE FUNCTION [dbo].[SF_PassWordEncryption]&#xD;&#xA;(&#xD;&#xA;&#x9;@password NVARCHAR(32),&#xD;&#xA;&#x9;@salt CHAR(8)&#xD;&#xA;)&#xD;&#xA;RETURNS VARBINARY(32)&#xD;&#xA;AS" />
+							<Property Name="HeaderContents" Value="CREATE FUNCTION [dbo].[SF_PassWordEncryption]&#xD;&#xA;(&#xD;&#xA;&#x9;@password NVARCHAR(MAX),&#xD;&#xA;&#x9;@salt CHAR(8)&#xD;&#xA;)&#xD;&#xA;RETURNS VARBINARY(MAX)&#xD;&#xA;AS" />
 						</Annotation>
 					</Element>
 				</Entry>
@@ -1489,7 +1489,7 @@ END]]></Value>
 						<Relationship Name="Type">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="32" />
+									<Property Name="IsMax" Value="True" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
@@ -1525,7 +1525,7 @@ END]]></Value>
 			<Relationship Name="Type">
 				<Entry>
 					<Element Type="SqlTypeSpecifier">
-						<Property Name="Length" Value="32" />
+						<Property Name="IsMax" Value="True" />
 						<Relationship Name="Type">
 							<Entry>
 								<References ExternalSource="BuiltIns" Name="[varbinary]" />
@@ -1561,7 +1561,7 @@ END]]></Value>
 					<References Name="[dbo].[BookAuthor]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="11" />
+			<AttachedAnnotation Disambiguator="12" />
 		</Element>
 		<Element Type="SqlUniqueConstraint" Name="[dbo].[UK_firstname_lastname]">
 			<Relationship Name="ColumnSpecifications">
@@ -1589,7 +1589,7 @@ END]]></Value>
 					<References Name="[dbo].[Author]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="5" />
+			<AttachedAnnotation Disambiguator="6" />
 		</Element>
 		<Element Type="SqlUniqueConstraint" Name="[dbo].[UK_isbn]">
 			<Relationship Name="ColumnSpecifications">
@@ -1657,7 +1657,7 @@ END]]></Value>
 			</Relationship>
 			<AttachedAnnotation Disambiguator="37" />
 		</Element>
-		<Element Type="SqlUniqueConstraint" Name="[dbo].[UK_User_Email]">
+		<Element Type="SqlUniqueConstraint" Name="[dbo].[UK_User_email]">
 			<Relationship Name="ColumnSpecifications">
 				<Entry>
 					<Element Type="SqlIndexedColumnSpecification">
@@ -1805,7 +1805,7 @@ END]]></Value>
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="50" />
+									<Property Name="IsMax" Value="True" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
@@ -1830,11 +1830,11 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
+						<AttachedAnnotation Disambiguator="3" />
 					</Element>
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[dbo].[User].[birthdate]">
-						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
@@ -1873,7 +1873,6 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<AttachedAnnotation Disambiguator="33" />
-			<AttachedAnnotation Disambiguator="19" />
 			<AttachedAnnotation Disambiguator="20" />
 			<AttachedAnnotation Disambiguator="38" />
 			<AttachedAnnotation Disambiguator="39" />
@@ -1881,16 +1880,21 @@ END]]></Value>
 		<Element Type="SqlProcedure" Name="[dbo].[User_Insert]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
-	SET @salt = [dbo].SF_GenerateSalt()
+	DECLARE @idUser INT, @salt CHAR(8)
+    SET @salt = [dbo].SF_GenerateSalt()
     
-    INSERT INTO [User] ([firstname], [lastname], [email], [avatar], [login], [password], [isAdmin], [birthdate], [salt])
-    OUTPUT inserted.idUser
-    VALUES (@firstname, @lastname, @email, @avatar, @login, @password, @isAdmin, @birthdate,[dbo].SF_PassWordEncryption(@password, @salt))]]></Value>
+    INSERT INTO [User] ([firstname], [lastname], [email], [avatar], [login], [isAdmin], [birthdate], [salt], [password])
+    --OUTPUT inserted.idUser
+    VALUES (@firstname, @lastname, @email, @avatar, @login, @isAdmin, @birthdate, @salt, [dbo].SF_PassWordEncryption(@password, @salt)) 
+    SET @idUser = @@IDENTITY]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="BodyDependencies">
 				<Entry>
-					<References Name="[dbo].[User_Insert].[@salt]" />
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[char]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[SF_GenerateSalt]" />
@@ -1914,9 +1918,6 @@ END]]></Value>
 					<References Name="[dbo].[User].[login]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[User].[password]" />
-				</Entry>
-				<Entry>
 					<References Name="[dbo].[User].[isAdmin]" />
 				</Entry>
 				<Entry>
@@ -1924,6 +1925,9 @@ END]]></Value>
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[User].[salt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[User].[password]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[User_Insert].[@firstname]" />
@@ -1941,9 +1945,6 @@ END]]></Value>
 					<References Name="[dbo].[User_Insert].[@login]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[User_Insert].[@password]" />
-				</Entry>
-				<Entry>
 					<References Name="[dbo].[User_Insert].[@isAdmin]" />
 				</Entry>
 				<Entry>
@@ -1953,7 +1954,7 @@ END]]></Value>
 					<References Name="[dbo].[SF_PassWordEncryption]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[User].[idUser]" />
+					<References Name="[dbo].[User_Insert].[@password]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -2041,22 +2042,6 @@ END]]></Value>
 					</Element>
 				</Entry>
 				<Entry>
-					<Element Type="SqlSubroutineParameter" Name="[dbo].[User_Insert].[@password]">
-						<Relationship Name="Type">
-							<Entry>
-								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="50" />
-									<Relationship Name="Type">
-										<Entry>
-											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
-										</Entry>
-									</Relationship>
-								</Element>
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
 					<Element Type="SqlSubroutineParameter" Name="[dbo].[User_Insert].[@isAdmin]">
 						<Relationship Name="Type">
 							<Entry>
@@ -2073,6 +2058,9 @@ END]]></Value>
 				</Entry>
 				<Entry>
 					<Element Type="SqlSubroutineParameter" Name="[dbo].[User_Insert].[@birthdate]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[NULL]]></Value>
+						</Property>
 						<Relationship Name="Type">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
@@ -2088,14 +2076,14 @@ END]]></Value>
 					</Element>
 				</Entry>
 				<Entry>
-					<Element Type="SqlSubroutineParameter" Name="[dbo].[User_Insert].[@salt]">
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[User_Insert].[@password]">
 						<Relationship Name="Type">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="8" />
+									<Property Name="IsMax" Value="True" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[char]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -2110,10 +2098,10 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="615" />
+				<Property Name="Length" Value="672" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[User_Insert]&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@firstname NVARCHAR(50),&#xD;&#xA;    @lastname NVARCHAR(50),&#xD;&#xA;    @email NVARCHAR(323),&#xD;&#xA;    @avatar NVARCHAR(50) = NULL,&#xD;&#xA;    @login NVARCHAR(50),&#xD;&#xA;    @password NVARCHAR(50),&#xD;&#xA;    @isAdmin BIT,&#xD;&#xA;    @birthdate DATETIME2,&#xD;&#xA;    @salt CHAR(8) &#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[User_Insert]&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@firstname NVARCHAR(50),&#xD;&#xA;    @lastname NVARCHAR(50),&#xD;&#xA;    @email NVARCHAR(323),&#xD;&#xA;    @avatar NVARCHAR(50) = NULL,&#xD;&#xA;    @login NVARCHAR(50),&#xD;&#xA;    @isAdmin BIT,&#xD;&#xA;    @birthdate DATETIME2 = NULL,&#xD;&#xA;    @password NVARCHAR(MAX)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[UserBook]">

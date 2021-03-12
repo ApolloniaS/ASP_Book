@@ -1,5 +1,4 @@
-﻿using NetFlask.Models;
-using Projet_ASP_book.Models;
+﻿using Projet_ASP_book.Models;
 using Projet_ASP_books.Infra;
 using Projet_ASP_books.Repositories;
 using System;
@@ -16,13 +15,9 @@ namespace Projet_ASP_books.Models
         private UserModel _userInfoModel;
         private List<ReadingStatusModel> _readingStatus;
 
-        public UserProfileViewModel() { //userModel directement reçu ici
-            
-            //gets info for user profile
-            //UserInfoModel = uow.GetUserInfo();
-
+        public UserProfileViewModel() { 
             //gets the different books read by user (+ status)
-            ReadingStatus = uow.GetBooksStatus();
+            ReadingStatus = uow.GetBooksStatus(SessionUtils.ConnectedUser.IdUser);
         }
 
         public UserModel UserInfoModel { get => _userInfoModel; set => _userInfoModel = value; }

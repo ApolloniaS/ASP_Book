@@ -1,5 +1,4 @@
 ﻿
-using NetFlask.Models;
 using Projet_ASP_book.Models;
 using Projet_ASP_books.DAL.Repositories;
 using Projet_ASP_books.Entities;
@@ -104,11 +103,12 @@ namespace Projet_ASP_books.Repositories
 
         #region Profile
         
-        public List<ReadingStatusModel> GetBooksStatus()
+        public List<ReadingStatusModel> GetBooksStatus(int idUser)
         {
             return ((UserBookRepository)_userBookRepo).Get().Select
                 (rs => new ReadingStatusModel
                 {
+                    IdUser = rs.IdUser,
                     Title = rs.Title,
                     Username = rs.Login,
                     Status = rs.ReadingStatus
@@ -131,7 +131,10 @@ namespace Projet_ASP_books.Repositories
                 Login = um.Login,
                 Email = um.Login,
                 Password = um.Password,
-                
+                Avatar = um.Avatar,
+                Birthdate = um.Birthdate,
+                IsAdmin = um.IsAdmin
+
             };
 
             return _userRepo.Insert(userEntity);
