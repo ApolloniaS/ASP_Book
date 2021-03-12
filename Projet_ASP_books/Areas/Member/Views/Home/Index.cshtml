@@ -1,4 +1,5 @@
-﻿@model Projet_ASP_books.Models.UserProfileViewModel
+﻿@model Projet_ASP_books.Models.UserModel
+
 @{
     ViewBag.Title = "Profil";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -20,48 +21,12 @@
         <div class="title text-center">
             <h1 class="mb-10">Vos infos</h1>
 
-            Nom:  @Model.UserInfoModel.LastName<br />
-            Prénom: @Model.UserInfoModel.FirstName <br />
+            Nom:  @Model.LastName<br />
+            Prénom: @Model.FirstName <br />
             <br />
-            Nom d'utilisateur: @Model.UserInfoModel.Login <br />
+            Nom d'utilisateur: @Model.Login <br />
             Informations sur vous: ..... @*//questionnaire ici ?//*@<br />
 
-            <h1 class="mb-10">Vous et vos lectures</h1>
-            @foreach (Projet_ASP_book.Models.ReadingStatusModel item in Model.ReadingStatus)
-            {
-
-                if (item.Status == "Lu")
-                {
-                    <div>
-                        Vous avez déjà lu...<br />
-                        @item.Title
-                    </div>
-                    <hr />
-                }
-
-                if (item.Status == "En cours de lecture")
-                {
-                    <div>
-                        Vous êtes en train de lire...<br />
-                        @item.Title
-                    </div>
-                    <hr />
-                }
-
-                if (item.Status == "À lire")
-                {
-                    <div>
-                        Vous aimeriez lire...<br />
-                        @item.Title
-                    </div>
-                    <hr />
-                }
-
-                
-
-            }
-            Vous avez donné votre avis sur...
-            
         </div>
 
     </div>

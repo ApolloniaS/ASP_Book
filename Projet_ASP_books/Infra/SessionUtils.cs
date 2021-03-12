@@ -8,7 +8,7 @@ namespace Projet_ASP_books.Infra
 {
     public static class SessionUtils
     {
-        
+
         public static bool IsLogged
         {
             get
@@ -24,11 +24,11 @@ namespace Projet_ASP_books.Infra
             set { HttpContext.Current.Session["logged"] = value; }
         }
 
-        public static UserProfileViewModel ConnectedUser
+        public static UserModel ConnectedUser
         {
             get
             {
-                return (UserProfileViewModel)HttpContext.Current.Session["ConnectedUser"];
+                return (UserModel)HttpContext.Current.Session["ConnectedUser"];
             }
 
             set { HttpContext.Current.Session["ConnectedUser"] = value; }

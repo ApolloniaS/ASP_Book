@@ -15,10 +15,6 @@ namespace Projet_ASP_books.Areas.Member.Controllers
         {
             if (!SessionUtils.IsLogged) return RedirectToAction("Login", "Account", new { area = "" });
             else {
-
-                //UserProfileViewModel upvm = new UserProfileViewModel();
-                //return View(upvm); 
-                SessionUtils.ConnectedUser = new UserProfileViewModel();
                 return View(SessionUtils.ConnectedUser);
             }
         }

@@ -14,10 +14,19 @@ namespace Projet_ASP_books.Repositories
         {
         }
 
-        //fct de récup: username via review
+        //retrieve username from Review
         public UserEntity GetUserNameFromReview(int idReview) {
             string requete = @"SELECT [login] FROM [User] INNER JOIN [Review] ON [User].idUser = Review.idUser WHERE Review.idReview =" +  idReview;
             return base.GetOne(idReview, requete);
+        }
+
+        // check login
+        public UserEntity GetFromLogin(string login )
+        {
+            //TODO : add the SP to check if the password matches the one in the DB
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p.Add("login", login); 
+            return base.Get( "Select * from [User] where Login=@login",p).FirstOrDefault();
         }
 
         

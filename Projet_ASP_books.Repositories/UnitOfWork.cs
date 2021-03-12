@@ -3,6 +3,7 @@ using NetFlask.Models;
 using Projet_ASP_book.Models;
 using Projet_ASP_books.DAL.Repositories;
 using Projet_ASP_books.Entities;
+using Projet_ASP_books.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -102,24 +103,7 @@ namespace Projet_ASP_books.Repositories
         #endregion
 
         #region Profile
-        // function to show basic info on user profile
-        public UserModel GetUserInfo()
-        {
-            // TODO: adapt to get a user dynamically, rn it's only user with id 2 for testing purpose
-            // pass param to function here and then pass sessionUtils as param in view ??
-
-            UserEntity userFromDB = _userRepo.GetOne(2);
-            UserModel um = new UserModel();
-            um.IdUser = userFromDB.IdUser;
-            um.FirstName = userFromDB.Firstname;
-            um.LastName = userFromDB.Lastname;
-            um.Login = userFromDB.Login;
-
-            return um;
-        }
-
-        // function to retrieve the books read by user and their status
-        //(where false = to be read, true = already read, null = currently reading)
+        
         public List<ReadingStatusModel> GetBooksStatus()
         {
             return ((UserBookRepository)_userBookRepo).Get().Select
@@ -130,31 +114,50 @@ namespace Projet_ASP_books.Repositories
                     Status = rs.ReadingStatus
                 }
                 ).ToList();
-        }   
+        }
         #endregion
 
 
-        // CONTROLLER LOGIN AREA //
-
-        // new user connexion
-        //public bool SignUp(UserModel um)
-        //{
-        //    UserEntity userEntity = new UserEntity()
-        //    {
-        //        Firstname = um.FirstName,
-        //        Lastname = um.LastName,
-        //        Login = um.Login,
-        //        Password = um.Password
-        //    };
-
-        //    return _userRepo.Insert(userEntity);
-        //}
+        #region Connexion/Registration
 
 
-        // existing user connexion
-        //public UserModel SignIn(LoginModel lm)
-        //{
-        //    //TODO
-        //}
+        //signing up new user
+        public bool SignUp(UserModel um)
+        {
+            UserEntity userEntity = new UserEntity()
+            {
+                Firstname = um.FirstName,
+                Lastname = um.LastName,
+                Login = um.Login,
+                Email = um.Login,
+                Password = um.Password,
+                
+            };
+
+            return _userRepo.Insert(userEntity);
+        }
+
+
+        // connecting existing user
+        public UserModel SignIn(LoginModel lm)
+        {
+            UserEntity ue = ((UserRepository)_userRepo).GetFromLogin(lm.Login);
+            if (ue == null) return null;
+            
+            if (ue!= null)
+            {
+                return new UserModel()
+                {
+                    FirstName = ue.Firstname,
+                    LastName = ue.Lastname,
+                    Login = ue.Login,
+                };
+            }
+            else
+            {
+                return null;
+            }
+        } 
+        #endregion
     }
 }

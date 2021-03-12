@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetFlask.Models
+namespace Projet_ASP_books.Models
 {
     public class UserModel
     {
         int _idUser;
         string _firstName, _lastName, _login;
-            //_password, _passwordConfirmation, _avatar;
+        string _password, _passwordConfirmation, _avatar;
 
         public int IdUser
         {
@@ -69,36 +69,36 @@ namespace NetFlask.Models
             }
         }
 
-        //[Required]
-        //[MaxLength(50)]
-        //public string Password
-        //{
-        //    get
-        //    {
-        //        return _password;
-        //    }
-        //    set
-        //    {
-        //        _password = value;
-        //    }
-        //}
+        [Required]
+        [MaxLength(50)]
+        public string Password
+        {
+            get
+            {
+                return _password;
+            }
+            set
+            {
+                _password = value;
+            }
+        }
 
-        //[Required]
-        //[MaxLength(50)]
-        //[Compare("Password", ErrorMessage = "Les mots de passe ne sont pas identiques !")]
-        //public string ConfirmPassword
-        //{
-        //    get
-        //    {
-        //        return _passwordConfirmation;
-        //    }
+        [Required]
+        [MaxLength(50)]
+        [Compare("Password", ErrorMessage = "Les mots de passe ne sont pas identiques !")]
+        public string ConfirmPassword
+        {
+            get
+            {
+                return _passwordConfirmation;
+            }
 
-        //    set
-        //    {
-        //        _passwordConfirmation = value;
-        //    }
-        //}
+            set
+            {
+                _passwordConfirmation = value;
+            }
+        }
 
-        //public string Avatar { get => _avatar; set => _avatar = value; }
+        public string Avatar { get => _avatar; set => _avatar = value; }
     }
 }

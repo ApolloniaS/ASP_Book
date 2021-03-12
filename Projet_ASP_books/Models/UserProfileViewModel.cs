@@ -16,10 +16,10 @@ namespace Projet_ASP_books.Models
         private UserModel _userInfoModel;
         private List<ReadingStatusModel> _readingStatus;
 
-        public UserProfileViewModel() {
+        public UserProfileViewModel() { //userModel directement reçu ici
             
             //gets info for user profile
-            UserInfoModel = uow.GetUserInfo();
+            //UserInfoModel = uow.GetUserInfo();
 
             //gets the different books read by user (+ status)
             ReadingStatus = uow.GetBooksStatus();

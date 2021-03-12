@@ -1,6 +1,6 @@
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\bin\Debug\Projet_ASP_books.Entities.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\bin\Debug\Projet_ASP_books.Entities.pdb
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\obj\Debug\Projet_ASP_books.Entities.csprojAssemblyReference.cache
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\obj\Debug\Projet_ASP_books.Entities.csproj.CoreCompileInputs.cache
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\obj\Debug\Projet_ASP_books.Entities.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\obj\Debug\Projet_ASP_books.Entities.pdb
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\obj\Debug\Projet_ASP_books.Entities.csprojAssemblyReference.cache

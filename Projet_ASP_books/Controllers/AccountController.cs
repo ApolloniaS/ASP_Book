@@ -1,5 +1,6 @@
 ﻿using NetFlask.Models;
 using Projet_ASP_books.Infra;
+using Projet_ASP_books.Models;
 using Projet_ASP_books.Repositories;
 using System;
 using System.Collections.Generic;
@@ -41,14 +42,16 @@ namespace Projet_ASP_books.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (lm.Login != "aSorella" && lm.Password != "123477")
+                UserModel um = uow.SignIn(lm);
+                if (um == null)
                 {
-                    ViewBag.Error = "Le mot de passe ou le nom d'utilisateur entré est erroné";
+                    ViewBag.Error = "Erreur Login/Password";
                     return View();
                 }
                 else
                 {
                     SessionUtils.IsLogged = true;
+                    SessionUtils.ConnectedUser = um;
                     return RedirectToAction("Index", "Home", new { area = "Member" });
                 }
             }
@@ -58,27 +61,6 @@ namespace Projet_ASP_books.Controllers
             }
 
         }
-        //if (ModelState.IsValid)
-        //{
-        //    UserModel um = uow.UserAuth(lm);
-        //    if (um == null)
-        //    {
-        //        ViewBag.Error = "Erreur Login/Password";
-        //        return View();
-        //    }
-        //    else
-        //    {
-        //        SessionUtils.IsLogged = true;
-        //        SessionUtils.ConnectedUser = um;
-        //        return RedirectToAction("Index", "Home", new { area = "Membre" });
-        //    }
-        //}
-        //else
-        //{
-        //    return View();
-        //}
-
-
     }
 
     //[HttpPost]
