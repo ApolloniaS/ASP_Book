@@ -61,6 +61,12 @@ namespace Projet_ASP_books.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(UserModel um)
