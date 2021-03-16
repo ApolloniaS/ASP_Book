@@ -82,8 +82,8 @@
     <Build Include="dbo\Views\V_RandomNb.sql" />
     <Build Include="dbo\Views\V_MostRecentReviews.sql" />
     <Build Include="dbo\Views\V_BookRating.sql" />
-    <Build Include="dbo\Views\V_ReadingStatus_1.sql" />
-    <Build Include="dbo\Views\V_UserReview_1.sql" />
-    <Build Include="dbo\StoredProcedure\SP_Check_Password.sql" />
+    <Build Include="dbo\Views\V_ReadingStatus.sql" />
+    <Build Include="dbo\Views\V_UserReview.sql" />
+    <Build Include="dbo\StoredProcedure\SP_CHECKPASSWORD.sql" />
   </ItemGroup>
 </Project>

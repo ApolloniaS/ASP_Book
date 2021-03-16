@@ -73,12 +73,15 @@ namespace Projet_ASP_books.Repositories
         // function displaying all books from DB on the search page
         public List<FullBookModel> GetAllBooks(string sortBy, string userInput, int page)
         {
+            //TO DO: get the category as well !
             return ((BookRepository)_bookRepo).SeparatePages(sortBy, userInput, page).Select
                 (b => new FullBookModel
                 {
                     Review = new ReviewModel() {
                         ReviewContent = String.Join("\n", ((ReviewRepository)_reviewRepo).GetAllReviewsFromABook(b.IdBook).Select(r => r.ReviewContent)),
                         IdBook = b.IdBook,
+                        //todo change to a list
+                        // + get other info (username, date, score)
                     },
                     Title = b.Title,
                     Summary = b.Summary,
@@ -94,16 +97,24 @@ namespace Projet_ASP_books.Repositories
         #endregion
 
         #region Reviews
-
-        List<ReviewModel> showReviewsOfABook() {
-            return null;
+        public bool addReview(ReviewModel rm, int idUser)
+        {
+            ReviewEntity re = new ReviewEntity()
+            {
+                IdBook = 11, //change !!
+                IdUser = idUser,
+                ReviewContent = rm.ReviewContent,
+                ReviewScore = rm.Score,
+                ReviewDate = DateTime.Now,
+        };
+            return _reviewRepo.Insert(re);
         }
-        
+
         #endregion
 
         #region Profile
-        
-        public List<ReadingStatusModel> GetBooksStatus(int idUser)
+
+        public List<ReadingStatusModel> GetBooksStatus()
         {
             return ((UserBookRepository)_userBookRepo).Get().Select
                 (rs => new ReadingStatusModel
@@ -116,7 +127,6 @@ namespace Projet_ASP_books.Repositories
                 ).ToList();
         }
         #endregion
-
 
         #region Connexion/Registration
 
@@ -144,13 +154,14 @@ namespace Projet_ASP_books.Repositories
         // connecting existing user
         public UserModel SignIn(LoginModel lm)
         {
-            UserEntity ue = ((UserRepository)_userRepo).GetFromLogin(lm.Login);
+            UserEntity ue = ((UserRepository)_userRepo).GetFromLogin(lm.Login, lm.Password);
             if (ue == null) return null;
             
             if (ue!= null)
             {
                 return new UserModel()
                 {
+                    IdUser = ue.IdUser,
                     FirstName = ue.Firstname,
                     LastName = ue.Lastname,
                     Login = ue.Login,

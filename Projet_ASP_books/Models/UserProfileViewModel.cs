@@ -13,13 +13,16 @@ namespace Projet_ASP_books.Models
     {
         UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
         private List<ReadingStatusModel> _readingStatus;
+        private UserModel _currentUser;
         
 
-        public UserProfileViewModel() { 
+        public UserProfileViewModel() {
             //gets the different books read by user (+ status)
-            ReadingStatus = uow.GetBooksStatus(SessionUtils.ConnectedUser.IdUser);
+            CurrentUser = SessionUtils.ConnectedUser;
+            ReadingStatus = uow.GetBooksStatus();
         }
 
         public List<ReadingStatusModel> ReadingStatus { get => _readingStatus; set => _readingStatus = value; }
+        public UserModel CurrentUser { get => _currentUser; set => _currentUser = value; }
     }
 }

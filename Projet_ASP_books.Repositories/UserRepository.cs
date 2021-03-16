@@ -21,12 +21,16 @@ namespace Projet_ASP_books.Repositories
         }
 
         // check login
-        public UserEntity GetFromLogin(string login)
+        public UserEntity GetFromLogin(string login, string password)
         {
             //TODO : add the SP to check if the password matches the one in the DB
+            string requete = @"EXECUTE [dbo].[SP_CHECKPASSWORD] 
+                @login, 
+                @password";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p.Add("login", login);
-            return base.Get("Select * from [User] where Login=@login", p).FirstOrDefault();
+            p.Add("password", password);
+            return base.Get(requete, p).FirstOrDefault();
         }
 
         

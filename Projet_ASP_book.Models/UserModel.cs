@@ -27,6 +27,7 @@ namespace Projet_ASP_books.Models
                 _idUser = value;
             }
         }
+
         [Required]
         [MaxLength(50)]
         public string FirstName

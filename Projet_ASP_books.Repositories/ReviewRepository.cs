@@ -45,7 +45,9 @@ namespace Projet_ASP_books.Repositories
 
         public bool Insert(ReviewEntity toInsert)
         {
-            throw new NotImplementedException();
+            string requete = @"INSERT INTO Review (idUser, idBook, reviewDate, reviewContent, reviewScore) 
+                            VALUES (@idUser, @idBook, GETDATE(), @reviewContent, @reviewScore)";
+            return base.Insert(toInsert, requete);
         }
 
         public bool Update(ReviewEntity toUpdate)

@@ -20,11 +20,11 @@
     <div class="container">
         <div class="title text-center">
             <h1 class="mb-10">Vos infos</h1>
-
-            Nom:  @Projet_ASP_books.Infra.SessionUtils.ConnectedUser.LastName<br />
-            Prénom: @Projet_ASP_books.Infra.SessionUtils.ConnectedUser.FirstName <br />
+            Votre id: @Model.CurrentUser.IdUser
+            Nom:  @Model.CurrentUser.LastName<br />
+            Prénom: @Model.CurrentUser.FirstName <br />
             <br />
-            Nom d'utilisateur: @Projet_ASP_books.Infra.SessionUtils.ConnectedUser.Login <br />
+            Nom d'utilisateur: @Model.CurrentUser.Login <br />
             Informations sur vous: ..... @*//questionnaire ici ?//*@<br />
 
             <h1 class="mb-10">Vos lectures</h1>
@@ -36,7 +36,7 @@
                         Vous avez lu<hr />
                         @foreach (var item in Model.ReadingStatus)
                         {
-                            if (item.Username == Projet_ASP_books.Infra.SessionUtils.ConnectedUser.Login)
+                            if (item.Username == Model.CurrentUser.Login)
                             {
                                 if (item.Status == "Lu")
                                 {
@@ -50,7 +50,7 @@
                         Vous voudriez lire<hr />
                         @foreach (var item in Model.ReadingStatus)
                         {
-                            if (item.Username == Projet_ASP_books.Infra.SessionUtils.ConnectedUser.Login) { 
+                            if (item.Username == Model.CurrentUser.Login) { 
                                 if (item.Status == "À lire")
                                 {
                                     @item.Title<br />
@@ -62,7 +62,7 @@
                         Vous êtes en train de lire<hr />
                         @foreach (var item in Model.ReadingStatus)
                         {
-                            if (item.Username == Projet_ASP_books.Infra.SessionUtils.ConnectedUser.Login)
+                            if (item.Username == Model.CurrentUser.Login)
                             {
                                 if (item.Status == "En cours de lecture")
                                 {

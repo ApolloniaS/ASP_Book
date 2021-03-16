@@ -132,6 +132,7 @@
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\LoginRegisterModel.cs" />
     <Compile Include="Models\UserProfileViewModel.cs" />
+    <Compile Include="Models\WriteReviewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +242,7 @@
     <Content Include="fonts\Linearicons-Free.woff2" />
     <Content Include="Areas\Member\Views\web.config" />
     <Content Include="Areas\Member\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Member\Views\Home\WriteReview.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
