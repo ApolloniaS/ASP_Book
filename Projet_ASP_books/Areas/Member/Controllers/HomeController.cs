@@ -34,24 +34,24 @@ namespace Projet_ASP_books.Areas.Member.Controllers
         }
 
         
-        public ActionResult WriteReview()
-        {
+        public ActionResult WriteReview(int idBook)
+        {//TODO: gérer une id nulle ou mauvaise url
             if (!SessionUtils.IsLogged) return RedirectToAction("Login", "Account", new { area = "" });
             else
             {
-                WriteReviewModel wrm = new WriteReviewModel();
+                WriteReviewModel wrm = new WriteReviewModel(idBook);
                 return View(wrm);
             }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SubmitReview(ReviewModel rm) {
+        public ActionResult SubmitReview(ReviewModel rm, int idBook) {
 
             if (ModelState.IsValid)
             {
                 
-                uow.addReview(rm, SessionUtils.ConnectedUser.IdUser);
+                uow.addReview(rm, SessionUtils.ConnectedUser.IdUser, idBook);
                 return RedirectToAction("Books", "Home", new { area = "" }); ;
 
             }
@@ -61,5 +61,15 @@ namespace Projet_ASP_books.Areas.Member.Controllers
             }
            
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateStatusInProfile(int idBook, int idUser, string readingstatus) {
+
+            uow.AddReadingStatus(idBook, idUser, readingstatus);
+            return View();
+        }
+
+      
     }
 }

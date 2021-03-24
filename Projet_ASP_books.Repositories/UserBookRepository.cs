@@ -32,7 +32,8 @@ namespace Projet_ASP_books.Repositories
 
         public bool Insert(UserBookEntity toInsert)
         {
-            throw new NotImplementedException();
+            string requete = @"INSERT INTO[dbo].[UserBook] ([idUser], [idBook], [readingStatus]) VALUES (@idUser, @idBook, @readingStatus)";
+            return base.Insert(toInsert, requete);
         }
 
         public bool Update(UserBookEntity toUpdate)

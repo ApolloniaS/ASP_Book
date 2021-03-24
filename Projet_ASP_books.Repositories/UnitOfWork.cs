@@ -83,6 +83,7 @@ namespace Projet_ASP_books.Repositories
                         //todo change to a list
                         // + get other info (username, date, score)
                     },
+                    IdBook = b.IdBook,
                     Title = b.Title,
                     Summary = b.Summary,
                     Picture = b.Picture,
@@ -97,11 +98,11 @@ namespace Projet_ASP_books.Repositories
         #endregion
 
         #region Reviews
-        public bool addReview(ReviewModel rm, int idUser)
+        public bool addReview(ReviewModel rm, int idUser, int idBook)
         {
             ReviewEntity re = new ReviewEntity()
             {
-                IdBook = 11, //change !!
+                IdBook = idBook, 
                 IdUser = idUser,
                 ReviewContent = rm.ReviewContent,
                 ReviewScore = rm.Score,
@@ -127,6 +128,17 @@ namespace Projet_ASP_books.Repositories
                 ).ToList();
         }
         #endregion
+
+        public bool AddReadingStatus(int idBook, int idUser, string readingstatus) {
+            UserBookEntity ube = new UserBookEntity()
+            {
+                IdBook = idBook,
+                IdUser = idUser,
+                ReadingStatus = readingstatus,
+
+            };
+            return _userBookRepo.Insert(ube);
+        }
 
         #region Connexion/Registration
 

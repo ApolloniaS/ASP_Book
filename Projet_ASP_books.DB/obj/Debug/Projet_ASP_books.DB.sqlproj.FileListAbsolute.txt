@@ -1,10 +1,6 @@
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.DB\bin\Debug\Projet_ASP_books.DB.dacpac
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.DB\bin\Debug\Projet_ASP_books.DB.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.DB\bin\Debug\Projet_ASP_books.DB.pdb
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.DB\obj\Debug\Model.xml
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.DB\obj\Debug\refactor.xml
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.DB\obj\Debug\postdeploy.sql
-C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.DB\obj\Debug\predeploy.sql
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.DB\obj\Debug\Projet_ASP_books.DB.dll
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.DB\obj\Debug\Projet_ASP_books.DB.pdb
 C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.DB\obj\Debug\Projet_ASP_books.DB.sqlprojAssemblyReference.cache
