@@ -1,0 +1,101 @@
+﻿@model Projet_ASP_books.Models.BookViewModel
+
+<style>
+    .review-container {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 1 !important;
+    }
+
+    .reviews {
+        position: absolute !important;
+        width: 90%;
+        height: 50%;
+        top: 50% !important;
+        left: 50% !important;
+        background-color: white;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<section class="generic-banner relative">
+    <div class="container">
+        <div class="row height align-items-center justify-content-center">
+
+            <div class="generic-banner-content">
+                <p class="text-white">Vous ne savez pas quoi lire ?<br /> Faites une recherche et accédez aux avis d'autres lecteurs chevronnés !</p>
+                @*<a href="/Member/Home/WriteReview" class="genric-btn primary-border e-large">Écrire un avis</a>*@
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Start Align Area -->
+<div class="whole-wrap">
+    <div class="container">
+
+        @using (Html.BeginForm("Books", "Home", FormMethod.Get))
+        {
+            <div class="mt-10 dflex">
+
+                @*@Html.TextBox("userInput", null, new { @class = "single-input-custo" })*@
+
+                <input type="text" name="userInput" placeholder="Rechercher un livre..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rechercher un livre...'" class="single-input-custo">
+
+                <div class="default-select" id="default-select">
+                    <select name="sortBy">
+                        <option value="Title">@Html.ActionLink("Par titre", "Books", new { sortBy = ViewBag.sortByTitle })</option>
+                        <option value="auteur">@Html.ActionLink("Par auteur", "Books", new { sortBy = ViewBag.sortByAuthor })</option>
+                        <option value="xxx">@Html.ActionLink("Par édition", "Books", new { sortBy = ViewBag.sortByPublisher })</option>
+                        <option value="Rating">@Html.ActionLink("Par note moyenne", "Books", new { sortBy = ViewBag.sortByRating })</option>
+                    </select>
+                </div>
+                <button class="genric-btn primary">Lancer la recherche</button>
+            </div>
+        }
+        @foreach (Projet_ASP_book.Models.FullBookModel item in Model.BookCards)
+        {
+            <div class="section-top-border">
+                <h3 class="mb-30">@item.Title</h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="@item.Picture" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-9 mt-sm-20">
+                        <p>@item.Summary</p>
+                        <hr />
+                        <p>@item.AuthorFullName || @item.Audience || Note moyenne&nbsp;: @item.AverageScore </p>
+                        <hr />
+                        <div style="padding-bottom:1%;"><button class="genric-btn primary-border small">Je l'ai lu <3</button><button href="#" class="genric-btn primary-border small">Je suis en train de le lire !</button><button href="#" class="genric-btn primary-border small">J'aimerais le lire !</button></div>
+                        <p>Les lecteurs ont donné @item.NbReviews avis sur ce livre.</p>
+                        <button class="genric-btn primary e-large popup-custo" style="margin-right:1%;">Lire les avis</button>
+                        <a class="genric-btn primary e-large popup-custo" href="@Url.Action("WriteReview", "Home", new { Area = "Member", idBook = item.IdBook })">Écrire un avis</a>
+                        <div class="review-container">
+                            <div class="reviews">Le [date], [username] a écrit: @item.Review.ReviewContent</div>
+                            @*changer le reviewcontent en liste de reviews et itérer dessus ? pour le moment tout se met à la suite*@
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+        @{
+            Html.RenderPartial("~/Views/Shared/_paginate.cshtml", new ViewDataDictionary { { "MaxPage", Model.MaxPage } });
+        }
+    </div>
+</div>
+
+<script>
+    const buttons = document.querySelectorAll('.popup-custo');
+
+    for (const button of buttons) {
+        button.addEventListener('click', function (e) {
+            e.target.parentNode.children[6].style.display = 'block';
+        });
+    }</script>
+<!-- End Align Area -->

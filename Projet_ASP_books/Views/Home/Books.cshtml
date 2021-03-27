@@ -28,7 +28,7 @@
 
             <div class="generic-banner-content">
                 <p class="text-white">Vous ne savez pas quoi lire ?<br /> Faites une recherche et accédez aux avis d'autres lecteurs chevronnés !</p>
-                @*<a href="/Member/Home/WriteReview" class="genric-btn primary-border e-large">Écrire un avis</a>*@
+                <p>N'oubliez pas de donner votre avis :)</p>
             </div>
 
         </div>
@@ -70,7 +70,26 @@
                         <hr />
                         <p>@item.AuthorFullName || @item.Audience || Note moyenne&nbsp;: @item.AverageScore </p>
                         <hr />
-                        <div style="padding-bottom:1%;"><button class="genric-btn primary-border small">Je l'ai lu <3</button><button href="#" class="genric-btn primary-border small">Je suis en train de le lire !</button><button href="#" class="genric-btn primary-border small">J'aimerais le lire !</button></div>
+                        @if(Projet_ASP_books.Infra.SessionUtils.ConnectedUser != null) { 
+                    <div style="padding-bottom:1%;display:flex">
+                        @using (Html.BeginForm("UpdateStatusInProfile", "Home", new { Area = "Member", idBook = item.IdBook, idUser = Projet_ASP_books.Infra.SessionUtils.ConnectedUser.IdUser, readingstatus = false }, FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <button class="genric-btn primary-border small">J'aimerais le lire !</button>
+                        }
+                        @using (Html.BeginForm("UpdateStatusInProfile", "Home", new { Area = "Member", idBook = item.IdBook, idUser = Projet_ASP_books.Infra.SessionUtils.ConnectedUser.IdUser, readingstatus = true }, FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <button class="genric-btn primary-border small">Je l'ai lu !</button>
+                        }
+                        @using (Html.BeginForm("UpdateStatusInProfile", "Home", new { Area = "Member", idBook = item.IdBook, idUser = Projet_ASP_books.Infra.SessionUtils.ConnectedUser.IdUser, readingstatus = "" }, FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <button class="genric-btn primary-border small">Je suis en train de le lire !</button>
+                        }
+                    </div>
+                        }
+
                         <p>Les lecteurs ont donné @item.NbReviews avis sur ce livre.</p>
                         <button class="genric-btn primary e-large popup-custo" style="margin-right:1%;">Lire les avis</button>
                         <a class="genric-btn primary e-large popup-custo" href="@Url.Action("WriteReview", "Home", new { Area = "Member", idBook = item.IdBook })">Écrire un avis</a>

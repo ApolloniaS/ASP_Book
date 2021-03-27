@@ -14,6 +14,15 @@ namespace Projet_ASP_books.Repositories
         {
         }
 
+        public bool ExistOrNot(UserBookEntity toCheck) 
+        {
+            string requete = @"EXEC [dbo].[SP_Add_Reading_Status] 
+                               @idBook
+                              ,@idUser
+                              ,@readingstatus";
+            return base.ExistOrNot(toCheck, requete);
+        }
+
         public bool Delete(UserBookEntity toDelete)
         {
             throw new NotImplementedException();
@@ -38,7 +47,8 @@ namespace Projet_ASP_books.Repositories
 
         public bool Update(UserBookEntity toUpdate)
         {
-            throw new NotImplementedException();
+            string requete = @"UPDATE [dbo].[UserBook] SET [idUser] = @idUser, [idBook] = @idBook, [readingStatus] = @readingStatus WHERE idBook = @idBook AND idUser = @idUser";
+            return base.Update(toUpdate, requete);
         }
     }
 }

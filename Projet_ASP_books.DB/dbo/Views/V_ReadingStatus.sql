@@ -103,10 +103,10 @@ Begin DesignProperties =
          End
          Begin Table = "User"
             Begin Extent = 
-               Top = 6
-               Left = 454
-               Bottom = 136
-               Right = 624
+               Top = 138
+               Left = 38
+               Bottom = 268
+               Right = 208
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -138,4 +138,6 @@ Begin DesignProperties =
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'V_ReadingStatus';
+
+
 

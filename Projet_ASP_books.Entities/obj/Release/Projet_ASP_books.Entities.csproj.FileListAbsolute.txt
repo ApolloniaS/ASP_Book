@@ -1,0 +1,5 @@
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\bin\Release\Projet_ASP_books.Entities.dll
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\bin\Release\Projet_ASP_books.Entities.pdb
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\obj\Release\Projet_ASP_books.Entities.csproj.CoreCompileInputs.cache
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\obj\Release\Projet_ASP_books.Entities.dll
+C:\Users\sorel\source\repos\Projet_ASP_books\Projet_ASP_books.Entities\obj\Release\Projet_ASP_books.Entities.pdb

@@ -129,7 +129,8 @@ namespace Projet_ASP_books.Repositories
         }
         #endregion
 
-        public bool AddReadingStatus(int idBook, int idUser, string readingstatus) {
+        public bool AddReadingStatus(int idBook, int idUser, string readingstatus)
+        {
             UserBookEntity ube = new UserBookEntity()
             {
                 IdBook = idBook,
@@ -137,7 +138,15 @@ namespace Projet_ASP_books.Repositories
                 ReadingStatus = readingstatus,
 
             };
-            return _userBookRepo.Insert(ube);
+
+            if (_userBookRepo.ExistOrNot(ube))
+            {
+                return _userBookRepo.Insert(ube);
+            }
+            else {
+                return _userBookRepo.Update(ube);
+            }
+            
         }
 
         #region Connexion/Registration

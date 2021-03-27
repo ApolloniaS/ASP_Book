@@ -61,6 +61,7 @@
     <Folder Include="dbo\ScalarFunctions" />
     <Folder Include="dbo\StoredProcedure" />
     <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\UserBook.sql" />
@@ -85,5 +86,7 @@
     <Build Include="dbo\Views\V_ReadingStatus.sql" />
     <Build Include="dbo\Views\V_UserReview.sql" />
     <Build Include="dbo\StoredProcedure\SP_CHECKPASSWORD.sql" />
+    <Build Include="dbo\Stored Procedures\SP_Show_Current_Books_Status.sql" />
+    <Build Include="dbo\Stored Procedures\SP_Add_Reading_Status.sql" />
   </ItemGroup>
 </Project>

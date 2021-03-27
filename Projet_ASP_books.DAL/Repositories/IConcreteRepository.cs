@@ -11,6 +11,7 @@ namespace Projet_ASP_books.DAL.Repositories
         bool Insert(T toInsert);
         bool Update(T toUpdate);
         bool Delete(T toDelete);
+        bool ExistOrNot(T toCheck);
         List<T> Get();
 
         T GetOne(int PK);

@@ -1,0 +1,54 @@
+﻿@model Projet_ASP_books.Models.WriteReviewModel
+
+@{
+    ViewBag.Title = "WriteReview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Start about Area -->
+<section class="section-gap info-area" id="connexion">
+    <div class="container">
+        <div class="title text-center">
+            <h1 class="mb-10">Écrire un avis</h1>
+            <p>Partagez votre opinion sur vos lectures, et aiguillez d'autres lecteurs dans leurs futurs choix :) !</p>
+        </div>
+        
+            @using (Html.BeginForm("SubmitReview", "Home", new { Area = "Member", idBook = Model.IdBook }, FormMethod.Post))
+            {
+
+                @Html.AntiForgeryToken()
+                <div class="mt-10">
+                    <input type="text" name="idBook" placeholder="@Model.IdBook" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Avis pour le livre ID @Model.IdBook'" disabled class="single-input">
+                    @Html.ValidationMessageFor(model => model.ReviewModel.IdBook, "", new { @class = "text-danger" })
+                </div>
+                <div class="mt-10">
+                    <input type="text" name="username" placeholder="@Projet_ASP_books.Infra.SessionUtils.ConnectedUser.Login" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Projet_ASP_books.Infra.SessionUtils.ConnectedUser.Login'" disabled class="single-input">
+                    @Html.ValidationMessageFor(model => model.ReviewModel.Username, "", new { @class = "text-danger" })
+                </div>
+                <div class="mt-10" style="width:10%;">
+                    <input type="number" name="Score" placeholder="Score" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Note'" required class="single-input">
+                    @Html.ValidationMessageFor(model => model.ReviewModel.Score, "", new { @class = "text-danger" })
+                    @*Should use a select here with the possible score (1-5) to enter. Generate the <option> with a for because it's just +1'
+                    <div class="default-select" id="default-select"">
+                                <select name="giveScore">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>*@
+                </div>
+                <div class="mt-10">
+                    <textarea name="ReviewContent" class="single-textarea" placeholder="Votre avis" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Avis'" required></textarea>
+                    @Html.ValidationMessageFor(model => model.ReviewModel.ReviewContent, "", new { @class = "text-danger" })
+                </div>
+                <div class="mt-10">
+                    @*<a type="submit" class="genric-btn primary e-large popup-custo" href="@Url.Action("SubmitReview", "Home", new { Area = "Member", idBook = Model.IdBook })">Valider votre avis</a>*@
+                    <button type="submit" class="genric-btn primary">Valider l'avis</button>
+                </div>
+            }
+        </div>
+</section>
+<!-- End about Area -->

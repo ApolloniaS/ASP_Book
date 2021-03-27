@@ -1,0 +1,82 @@
+﻿@model Projet_ASP_books.Models.UserProfileViewModel
+
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="generic-banner relative">
+    <div class="container">
+        <div class="row height align-items-center">
+            <div style="width:150px; height:150px; background-color: black; margin-right: 15px;">place pour avatar</div>
+            <h1>Bonjour !</h1>
+            @*Mettre un slider avec des livres ou quoi ?*@
+        </div>
+        Éditer les infos du profil
+    </div>
+</section>
+
+<section class="section-gap info-area" id="connexion">
+    <div class="container">
+        <div class="title text-center">
+            <h1 class="mb-10">Vos infos</h1>
+            Votre id: @Model.CurrentUser.IdUser
+            Nom:  @Model.CurrentUser.LastName<br />
+            Prénom: @Model.CurrentUser.FirstName <br />
+            <br />
+            Nom d'utilisateur: @Model.CurrentUser.Login <br />
+            Informations sur vous: ..... @*//questionnaire ici ?//*@<br />
+
+            <h1 class="mb-10">Vos lectures</h1>
+
+
+            
+                <div class="dflex">
+                    <div style="border: 1px solid grey;width: 33%;">
+                        Vous avez lu<hr />
+                        @foreach (var item in Model.ReadingStatus)
+                        {
+                            if (item.Username == Model.CurrentUser.Login)
+                            {
+                                if (item.Status == "Lu")
+                                {
+                                @item.Title<br/>
+                                }
+                            }
+                        }
+                        </div>
+                    
+                    <div style="border: 1px solid grey;width: 33%;">
+                        Vous voudriez lire<hr />
+                        @foreach (var item in Model.ReadingStatus)
+                        {
+                            if (item.Username == Model.CurrentUser.Login) { 
+                                if (item.Status == "À lire")
+                                {
+                                    @item.Title<br />
+                                }
+                            }
+                        }
+                    </div>
+                    <div style="border: 1px solid grey;width: 33%;">
+                        Vous êtes en train de lire<hr />
+                        @foreach (var item in Model.ReadingStatus)
+                        {
+                            if (item.Username == Model.CurrentUser.Login)
+                            {
+                                if (item.Status == "En cours de lecture")
+                                {
+                                    @item.Title<br />
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                
+                
+
+        </div>
+
+    </div>
+</section>
+

@@ -221,6 +221,39 @@ namespace Projet_ASP_books.DAL.Repositories
             }
         }
 
+        protected bool ExistOrNot(T toCheck, string checkRequest)
+        {
+
+            if (Connect())
+            {
+                SqlCommand oCmd = new SqlCommand(checkRequest, connection);
+
+                //Je suppose que le nom des paramètres dans la requête = le nom de la propriété dans l'objet T
+                oCmd.Parameters.AddRange(MapToSqlParameter(toCheck));
+
+                bool doExist = false;
+                try
+                {
+                    int info = oCmd.ExecuteNonQuery();
+                    doExist = true;
+                }
+                catch (Exception ex)
+                {
+
+                    doExist = false;
+                }
+
+                //fermer ma connexion vers la DB
+                Disconnect();
+                //renvoyer le résultat de l'insertion
+                return doExist;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
         #endregion

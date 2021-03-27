@@ -1,0 +1,58 @@
+﻿@model Projet_ASP_books.Models.HomeViewModel
+
+
+<!-- start banner Area -->
+@foreach (Projet_ASP_book.Models.RandomBookModel item in Model.RndmBookModel)
+{
+    <section class="banner-area" id="home">
+        <div class="container">
+            <div class="row fullscreen d-flex align-items-center justify-content-start">
+                <div class="banner-content col-lg-7">
+                    <h5 class="text-white text-uppercase">@item.AuthorFullName</h5>
+                    <h1 class="text-uppercase">
+                        @item.Title
+                    </h1>
+                    <p class="text-white pt-20 pb-20">
+                        @item.Summary
+                    </p>
+                    <a href="#" class="primary-btn text-uppercase">Voir les avis des lecteurs !</a>
+                </div>
+                <div class="col-lg-5 banner-right">
+                    <img class="img-fluid" src="@item.Picture" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+   }
+
+<!-- End banner Area -->
+<!-- Originally course area -->
+<section class="course-area section-gap" id="latestreviews">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-9">
+                <div class="title text-center">
+                    <h1 class="mb-10">Ce que les lecteurs en ont pensé</h1>
+                    <p>Les derniers avis !</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="active-course-carusel">
+                @foreach (Projet_ASP_book.Models.RecentReviewModel item in Model.RecentReviews)
+                {
+                    <div class="single-course item">
+                        <img class="img-fluid" src="@item.Picture" alt="">
+                        <div class="details">
+                            <a href="#"><h4>@item.Title<span class="price float-right">@item.ReviewScore/5</span></h4></a>
+                            <p>
+                                @item.ReviewContent<br />
+                                -- @item.Username
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

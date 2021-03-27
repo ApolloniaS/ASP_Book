@@ -1,0 +1,63 @@
+﻿@model Projet_ASP_books.Models.LoginRegisterModel
+
+<!-- Start about Area -->
+<section class="section-gap info-area" id="connexion">
+    <div class="container">
+        <div class="title text-center">
+            <h1 class="mb-10">Connexion</h1>
+        </div>
+        <form action=/Account/Login method="post">
+            @Html.AntiForgeryToken()
+            <div class="mt-10">
+                <input type="text" name="Login" placeholder="Nom d'utilisateur" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nom d\'utilisateur" required class="single-input">
+                @Html.ValidationMessageFor(model => model.LoginModel.Login, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                <input type="text" name="Password" placeholder="Mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mot de passe'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.LoginModel.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                @ViewBag.Error<br />
+                <button type="submit" class="genric-btn primary">Se connecter</button>
+            </div>
+        </form>
+        <br/>Vous n'êtes pas encore membre de la communauté&nbsp;?<br /><b>Rejoignez-nous et partagez vos lectures avec d'autres personnes qui partagent le même amour du livre que vous&nbsp;!</b></h1>
+        
+        <form action=/Account/Register method="post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="mt-10">
+                <input type="text" name="FirstName" placeholder="Prénom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.UserModel.FirstName, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                <input type="text" name="LastName" placeholder="Nom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nom'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.UserModel.LastName, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                <input type="text" name="Login" placeholder="Nom d'utilisateur" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nom d\'utilisateur" required class="single-input">
+                @Html.ValidationMessageFor(model => model.UserModel.Login, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                <input type="email" name="Email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.UserModel.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                <input type="date" name="Birthdate" placeholder="Date de naissance" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Date de naissance'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.UserModel.Birthdate, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                <input type="text" name="PassWord" placeholder="Entrez le mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Entrez le mot de passe'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.UserModel.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                <input type="text" name="ConfirmPassword" placeholder="Confirmez le mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirmez le mot de passe'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.UserModel.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                <button type="submit" class="genric-btn primary">S'inscrire</button>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- End about Area -->

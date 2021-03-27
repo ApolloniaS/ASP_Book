@@ -67,7 +67,7 @@ namespace Projet_ASP_books.Areas.Member.Controllers
         public ActionResult UpdateStatusInProfile(int idBook, int idUser, string readingstatus) {
 
             uow.AddReadingStatus(idBook, idUser, readingstatus);
-            return View();
+            return RedirectToAction("Index", "Home", new { area = "Member" }); ;
         }
 
       
