@@ -14,9 +14,9 @@ IF NOT EXISTS (
 	WHERE dbo.UserBook.idBook = @idBook AND dbo.UserBook.idUser = @idUser
 )
 BEGIN
-	RETURN false
+	RETURN 'FALSE'
 END
 ELSE
 BEGIN
-	RETURN true
+	RETURN 'TRUE'
 END
