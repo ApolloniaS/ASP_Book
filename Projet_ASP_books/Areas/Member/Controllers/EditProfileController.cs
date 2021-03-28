@@ -48,10 +48,10 @@ namespace Projet_ASP_books.Areas.Member.Controllers
 
                     //5 Mise à jour de l'objet User
                     SessionUtils.ConnectedUser.Avatar = Avatar.FileName;
-                    if(ModelState.IsValid)
-                    { 
+
+                   
                         uow.EditProfileInfo(SessionUtils.ConnectedUser, SessionUtils.ConnectedUser.IdUser);
-                    }
+                    
 
                 }
 

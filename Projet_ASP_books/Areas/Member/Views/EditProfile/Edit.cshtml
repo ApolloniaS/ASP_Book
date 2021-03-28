@@ -27,16 +27,6 @@
                 <input type="text" name="Login" placeholder="@Model.Login" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.FirstName" required class="single-input">
                 @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
             </div>
-            @*TODO: check why email only displays the part before the @ !
-            <div class="mt-10">
-            <input type="email" name="Email" placeholder="@Model.Email" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.Email'" required class="single-input">
-            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-        </div>*@
-            @*TODO: check how to actually have the current bd date appears/currently showing only YYMMDD*@
-            <div class="mt-10">
-                <input type="date" name="Birthdate" placeholder="@Model.Birthdate" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.Birthdate'" required class="single-input">
-                @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
-            </div>
 
             <div class="mt-10">
                 <div class="col-md-10">

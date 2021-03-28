@@ -150,12 +150,13 @@ namespace Projet_ASP_books.Repositories
         {
             UserEntity ue = new UserEntity() 
             {
+                IdUser = idUser,
                 Firstname = um.FirstName,
                 Lastname = um.LastName,
                 Login = um.Login,
+                Avatar = um.Avatar,
                 Email = um.Email,
                 Password = um.Password,
-                Avatar = um.Avatar,
                 Birthdate = um.Birthdate,
                 IsAdmin = um.IsAdmin
             };
