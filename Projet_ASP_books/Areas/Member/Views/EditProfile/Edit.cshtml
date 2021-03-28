@@ -1,0 +1,55 @@
+﻿@model Projet_ASP_books.Models.UserModel
+
+@{
+    ViewBag.Title = "Édition";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Start about Area -->
+<section class="section-gap info-area" id="connexion">
+    <div class="container">
+        <div class="title text-center">
+            <h1 class="mb-10">Éditer votre profil</h1>
+        </div>
+
+        <form action=/Member/EditProfile/Edit method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="mt-10">
+                <input type="text" name="FirstName" placeholder="@Model.FirstName" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.FirstName'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                <input type="text" name="LastName" placeholder="@Model.LastName" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.FirstName'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+            <div class="mt-10">
+                <input type="text" name="Login" placeholder="@Model.Login" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.FirstName" required class="single-input">
+                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+            </div>
+            @*TODO: check why email only displays the part before the @ !
+            <div class="mt-10">
+            <input type="email" name="Email" placeholder="@Model.Email" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.Email'" required class="single-input">
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>*@
+            @*TODO: check how to actually have the current bd date appears/currently showing only YYMMDD*@
+            <div class="mt-10">
+                <input type="date" name="Birthdate" placeholder="@Model.Birthdate" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.Birthdate'" required class="single-input">
+                @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mt-10">
+                <div class="col-md-10">
+                    <input type="file" name="Avatar" required class="single-input">
+                    @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "single-input" } })
+                    @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="mt-10">
+                <button type="submit" class="genric-btn primary">Éditer les informations</button>
+            </div>
+        </form>
+        @*TODO: add a different form (password/confirm password) in case user would like to change their password !*@
+    </div>
+</section>
+<!-- End about Area -->

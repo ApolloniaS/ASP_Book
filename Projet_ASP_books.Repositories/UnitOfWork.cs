@@ -20,8 +20,6 @@ namespace Projet_ASP_books.Repositories
         IConcreteRepository<AudienceEntity> _audienceRepo;
         IConcreteRepository<UserBookEntity> _userBookRepo;
 
-
-
         public UnitOfWork(string connectionString)
         {
             _bookRepo = new BookRepository(connectionString);
@@ -127,8 +125,6 @@ namespace Projet_ASP_books.Repositories
                 }
                 ).ToList();
         }
-        #endregion
-
         public bool AddReadingStatus(int idBook, int idUser, string readingstatus)
         {
             UserBookEntity ube = new UserBookEntity()
@@ -143,11 +139,30 @@ namespace Projet_ASP_books.Repositories
             {
                 return _userBookRepo.Insert(ube);
             }
-            else {
+            else 
+            {
                 return _userBookRepo.Update(ube);
             }
             
         }
+
+        public bool EditProfileInfo(UserModel um, int idUser)
+        {
+            UserEntity ue = new UserEntity() 
+            {
+                Firstname = um.FirstName,
+                Lastname = um.LastName,
+                Login = um.Login,
+                Email = um.Email,
+                Password = um.Password,
+                Avatar = um.Avatar,
+                Birthdate = um.Birthdate,
+                IsAdmin = um.IsAdmin
+            };
+
+            return _userRepo.Update(ue);
+        }
+        #endregion
 
         #region Connexion/Registration
 
@@ -160,7 +175,7 @@ namespace Projet_ASP_books.Repositories
                 Firstname = um.FirstName,
                 Lastname = um.LastName,
                 Login = um.Login,
-                Email = um.Login,
+                Email = um.Email,
                 Password = um.Password,
                 Avatar = um.Avatar,
                 Birthdate = um.Birthdate,
@@ -186,6 +201,11 @@ namespace Projet_ASP_books.Repositories
                     FirstName = ue.Firstname,
                     LastName = ue.Lastname,
                     Login = ue.Login,
+                    Avatar = ue.Avatar,
+                    Email = ue.Login,
+                    //Password = ue.Password,
+                    Birthdate = ue.Birthdate,
+                    IsAdmin = ue.IsAdmin
                 };
             }
             else

@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Member\Controllers\EditProfileController.cs" />
     <Compile Include="Areas\Member\Controllers\HomeController.cs" />
     <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -243,6 +244,7 @@
     <Content Include="Areas\Member\Views\web.config" />
     <Content Include="Areas\Member\Views\Home\Index.cshtml" />
     <Content Include="Areas\Member\Views\Home\WriteReview.cshtml" />
+    <Content Include="Areas\Member\Views\EditProfile\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -370,7 +372,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Member\Data\" />
-    <Folder Include="Areas\Member\Views\Profile\" />
     <Folder Include="Areas\Member\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

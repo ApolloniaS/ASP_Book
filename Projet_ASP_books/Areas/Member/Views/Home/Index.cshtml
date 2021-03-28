@@ -3,16 +3,25 @@
 @{
     ViewBag.Title = "Profil";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string Photo = "";
+    if (Model.CurrentUser.Avatar == null || Model.CurrentUser.Avatar == "")
+    {
+        Photo = "https://zupimages.net/up/21/12/37us.jpg";
+    }
+    else
+    {
+        Photo = "/images/Users/" + Model.CurrentUser.IdUser + "/" + Model.CurrentUser.Avatar;
+    }
+
 }
 
 <section class="generic-banner relative">
     <div class="container">
         <div class="row height align-items-center">
-            <div style="width:150px; height:150px; background-color: black; margin-right: 15px;">place pour avatar</div>
-            <h1>Bonjour !</h1>
+            <div style="margin-right: 15px;"><img style="border-radius:50%;border:1px solid black;width:125px;" src="@Photo" alt=""></div>
+            <h1>Bonjour @Model.CurrentUser.Login &nbsp;!</h1>
             @*Mettre un slider avec des livres ou quoi ?*@
         </div>
-        Éditer les infos du profil
     </div>
 </section>
 
@@ -20,17 +29,16 @@
     <div class="container">
         <div class="title text-center">
             <h1 class="mb-10">Vos infos</h1>
-            Votre id: @Model.CurrentUser.IdUser
+            <a href="/Member/EditProfile/Edit">Éditer les infos du profil</a> || Supprimer votre compte<br/>
+            <br/>
             Nom:  @Model.CurrentUser.LastName<br />
             Prénom: @Model.CurrentUser.FirstName <br />
-            <br />
             Nom d'utilisateur: @Model.CurrentUser.Login <br />
-            Informations sur vous: ..... @*//questionnaire ici ?//*@<br />
+            @*insert user questions here*@
+            <br/>
 
             <h1 class="mb-10">Vos lectures</h1>
 
-
-            
                 <div class="dflex">
                     <div style="border: 1px solid grey;width: 33%;">
                         Vous avez lu<hr />
@@ -72,9 +80,6 @@
                         }
                     </div>
                 </div>
-                
-                
-
         </div>
 
     </div>

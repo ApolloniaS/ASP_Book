@@ -17,8 +17,8 @@ namespace Projet_ASP_books.Models
         
 
         public UserProfileViewModel() {
-            //gets the different books read by user (+ status)
             CurrentUser = SessionUtils.ConnectedUser;
+            //gets the different books read by user (+ status)
             ReadingStatus = uow.GetBooksStatus();
         }
 

@@ -66,7 +66,18 @@ namespace Projet_ASP_books.Repositories
 
         public bool Update(UserEntity toUpdate)
         {
-            throw new NotImplementedException();
+            string requete = @"UPDATE [dbo].[User]
+            SET [firstname] = @firstname
+            ,[lastname] = @lastname
+            ,[email] = @email
+            ,[avatar] = @avatar
+            ,[login] = @login
+            ,[password] = @password
+            ,[isAdmin] = @isadmin
+            ,[birthdate] = @birthdate
+            
+            WHERE idUser = @iduser";
+            return base.Update(toUpdate, requete);
         }
 
         public bool ExistOrNot(UserEntity toCheck)
