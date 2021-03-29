@@ -1,0 +1,26 @@
+﻿@model Projet_ASP_books.Models.ReadReviewsModel
+@{
+    ViewBag.Title = "ReadReviews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@foreach (var item in Model.Reviews)
+{
+    if (item == null) //change condition ! 
+    {
+        <div class="single-defination">Il n'y a pas encore d'avis pour ce livre ! Soyez le premier a en donner un :)</div>
+    }
+    else
+    {
+        <div class="single-defination">
+            <h4 class="mb-20">Le @item.PublishedDate, @item.Username a donné la note de @item.Score/10 et a écrit:<br /></h4>
+            <blockquote class="generic-blockquote">@item.ReviewContent</blockquote>
+        </div>
+    }
+}
+
+<a href="/Home/Books">Retour à la liste des livres</a>
+
+

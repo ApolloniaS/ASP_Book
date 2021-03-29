@@ -100,13 +100,27 @@ namespace Projet_ASP_books.Repositories
         {
             ReviewEntity re = new ReviewEntity()
             {
-                IdBook = idBook, 
+                IdBook = idBook,
                 IdUser = idUser,
                 ReviewContent = rm.ReviewContent,
                 ReviewScore = rm.Score,
                 ReviewDate = DateTime.Now,
         };
             return _reviewRepo.Insert(re);
+        }
+
+        public List<ReviewModel> displayReviews(int idBook)
+        {
+            return ((ReviewRepository)_reviewRepo).GetAllReviewsFromABook(idBook).Select
+                (r => new ReviewModel()
+                {
+                    Username = _userRepo.GetOne(r.IdUser).Login,
+                    PublishedDate = r.ReviewDate,
+                    Score = r.ReviewScore,
+                    ReviewContent = r.ReviewContent,
+                    NbReviews = ((ReviewRepository)_reviewRepo).GetAllReviewsFromABook(r.IdBook).Count,
+                })
+                .ToList();
         }
 
         #endregion
@@ -146,7 +160,7 @@ namespace Projet_ASP_books.Repositories
             
         }
 
-        public bool EditProfileInfo(UserModel um, int idUser)
+        public bool EditProfilePic(UserModel um, int idUser)
         {
             UserEntity ue = new UserEntity() 
             {

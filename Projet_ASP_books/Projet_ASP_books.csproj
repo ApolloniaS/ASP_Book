@@ -132,6 +132,7 @@
     <Compile Include="Models\BookViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\LoginRegisterModel.cs" />
+    <Compile Include="Models\ReadReviewsModel.cs" />
     <Compile Include="Models\UserProfileViewModel.cs" />
     <Compile Include="Models\WriteReviewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -368,6 +369,7 @@
     <Content Include="scss\theme\_variables.scss" />
     <Content Include="Views\Shared\_paginate.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\ReadReviews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

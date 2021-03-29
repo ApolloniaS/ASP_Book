@@ -28,6 +28,12 @@ namespace Projet_ASP_books.Controllers
         }
 
         
+        public ActionResult ReadReviews(int idBook)
+        {
+            ReadReviewsModel rrm = new ReadReviewsModel(idBook);
+            return View(rrm);
+        }
+        
 
     }
 }

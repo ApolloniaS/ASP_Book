@@ -50,7 +50,7 @@ namespace Projet_ASP_books.Areas.Member.Controllers
                     SessionUtils.ConnectedUser.Avatar = Avatar.FileName;
 
                    
-                        uow.EditProfileInfo(SessionUtils.ConnectedUser, SessionUtils.ConnectedUser.IdUser);
+                        uow.EditProfilePic(SessionUtils.ConnectedUser, SessionUtils.ConnectedUser.IdUser);
                     
 
                 }

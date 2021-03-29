@@ -12,13 +12,13 @@
             <h1 class="mb-10">Écrire un avis</h1>
             <p>Partagez votre opinion sur vos lectures, et aiguillez d'autres lecteurs dans leurs futurs choix :) !</p>
         </div>
-        
+            
             @using (Html.BeginForm("SubmitReview", "Home", new { Area = "Member", idBook = Model.IdBook }, FormMethod.Post))
             {
 
                 @Html.AntiForgeryToken()
                 <div class="mt-10">
-                    <input type="text" name="idBook" placeholder="@Model.IdBook" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Avis pour le livre ID @Model.IdBook'" disabled class="single-input">
+                    <input type="text" name="idBook" placeholder="@Model.IdBook" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Avis pour le livre ID @Model.IdBook'" disabled style="display:none;">
                     @Html.ValidationMessageFor(model => model.ReviewModel.IdBook, "", new { @class = "text-danger" })
                 </div>
                 <div class="mt-10">
@@ -26,7 +26,7 @@
                     @Html.ValidationMessageFor(model => model.ReviewModel.Username, "", new { @class = "text-danger" })
                 </div>
                 <div class="mt-10" style="width:10%;">
-                    <input type="number" name="Score" placeholder="Score" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Note'" required class="single-input">
+                    <input type="number" min="0" max="5" name="Score" placeholder="Score" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Note'" required class="single-input">
                     @Html.ValidationMessageFor(model => model.ReviewModel.Score, "", new { @class = "text-danger" })
                     @*Should use a select here with the possible score (1-5) to enter. Generate the <option> with a for because it's just +1'
                     <div class="default-select" id="default-select"">

@@ -67,10 +67,7 @@ namespace Projet_ASP_books.Repositories
         public bool Update(UserEntity toUpdate)
         {
             string requete = @"UPDATE [dbo].[User]
-            SET [firstname] = @firstname
-            ,[lastname] = @lastname
-            ,[avatar] = @avatar
-            ,[login] = @login
+            SET [avatar] = @avatar
             WHERE idUser = @iduser";
             return base.Update(toUpdate, requete);
         }

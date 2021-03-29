@@ -10,7 +10,7 @@ namespace Projet_ASP_book.Models
     {
 
         //review-related
-        int _idBook;
+        int _idBook, _nbReviews;
         string _userAvatar, _username, _reviewContent;
         double _score;
         DateTime _publishedDate;
@@ -21,5 +21,6 @@ namespace Projet_ASP_book.Models
         public double Score { get => _score; set => _score = value; }
         public DateTime PublishedDate { get => _publishedDate; set => _publishedDate = value; }
         public int IdBook { get => _idBook; set => _idBook = value; }
+        public int NbReviews { get => _nbReviews; set => _nbReviews = value; }
     }
 }

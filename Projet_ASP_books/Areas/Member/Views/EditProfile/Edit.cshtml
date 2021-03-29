@@ -9,25 +9,12 @@
 <section class="section-gap info-area" id="connexion">
     <div class="container">
         <div class="title text-center">
-            <h1 class="mb-10">Éditer votre profil</h1>
+            <h1 class="mb-10">Changez votre avatar</h1>
         </div>
 
         <form action=/Member/EditProfile/Edit method="post" enctype="multipart/form-data">
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="mt-10">
-                <input type="text" name="FirstName" placeholder="@Model.FirstName" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.FirstName'" required class="single-input">
-                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-            </div>
-            <div class="mt-10">
-                <input type="text" name="LastName" placeholder="@Model.LastName" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.FirstName'" required class="single-input">
-                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-            </div>
-            <div class="mt-10">
-                <input type="text" name="Login" placeholder="@Model.Login" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.FirstName" required class="single-input">
-                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
-            </div>
-
             <div class="mt-10">
                 <div class="col-md-10">
                     <input type="file" name="Avatar" required class="single-input">

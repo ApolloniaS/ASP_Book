@@ -90,13 +90,11 @@
                     </div>
                         }
 
+
                         <p>Les lecteurs ont donné @item.NbReviews avis sur ce livre.</p>
-                        <button class="genric-btn primary e-large popup-custo" style="margin-right:1%;">Lire les avis</button>
+                        <a class="genric-btn primary e-large" style="margin-right:1%;" href="@Url.Action("ReadReviews", "Home", new { idBook = item.IdBook })">Lire les avis</a>
                         <a class="genric-btn primary e-large popup-custo" href="@Url.Action("WriteReview", "Home", new { Area = "Member", idBook = item.IdBook })">Écrire un avis</a>
-                        <div class="review-container">
-                            <div class="reviews">Le [date], [username] a écrit: @item.Review.ReviewContent</div>
-                            @*changer le reviewcontent en liste de reviews et itérer dessus ? pour le moment tout se met à la suite*@
-                        </div>
+                        
 
                     </div>
                 </div>
@@ -108,13 +106,4 @@
         }
     </div>
 </div>
-
-<script>
-    const buttons = document.querySelectorAll('.popup-custo');
-
-    for (const button of buttons) {
-        button.addEventListener('click', function (e) {
-            e.target.parentNode.children[6].style.display = 'block';
-        });
-    }</script>
 <!-- End Align Area -->

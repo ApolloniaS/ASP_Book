@@ -14,8 +14,7 @@ namespace Projet_ASP_books.Models
 
         public WriteReviewModel(int id)
         {
-            IdBook = id;
-            
+            IdBook = id;            
         }
 
         public ReviewModel ReviewModel { get => _reviewModel; set => _reviewModel = value; }
