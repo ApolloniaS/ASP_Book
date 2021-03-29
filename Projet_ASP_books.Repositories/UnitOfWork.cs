@@ -121,6 +121,7 @@ namespace Projet_ASP_books.Repositories
                     NbReviews = ((ReviewRepository)_reviewRepo).GetAllReviewsFromABook(r.IdBook).Count,
                 })
                 .ToList();
+            
         }
 
         #endregion

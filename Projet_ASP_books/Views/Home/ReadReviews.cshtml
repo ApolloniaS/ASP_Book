@@ -4,21 +4,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<section class="generic-banner relative">
+    <div class="container">
+        <div class="row height align-items-center justify-content-center">
+
+            <div class="generic-banner-content">
+                <p class="text-white">Retrouvez les avis des autres lecteurs !</p>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 
-@foreach (var item in Model.Reviews)
+@if (!Model.Reviews.Any())
 {
-    if (item == null) //change condition ! 
-    {
-        <div class="single-defination">Il n'y a pas encore d'avis pour ce livre ! Soyez le premier a en donner un :)</div>
-    }
-    else
+    <div class="single-defination" style="font-size:24px;margin-top:3%;">Il n'y a pas encore d'avis pour ce livre ! Soyez le premier a en donner un :)</div>
+}
+else
+{
+    foreach (var item in Model.Reviews)
     {
         <div class="single-defination">
             <h4 class="mb-20">Le @item.PublishedDate, @item.Username a donné la note de @item.Score/10 et a écrit:<br /></h4>
             <blockquote class="generic-blockquote">@item.ReviewContent</blockquote>
         </div>
     }
+
 }
 
 <a href="/Home/Books">Retour à la liste des livres</a>
