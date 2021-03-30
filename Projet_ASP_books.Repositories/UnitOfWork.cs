@@ -150,13 +150,14 @@ namespace Projet_ASP_books.Repositories
 
             };
 
-            if (_userBookRepo.ExistOrNot(ube))
+            UserBookEntity checkIfExist = ((UserBookRepository)_userBookRepo).GetFromIds(idBook, idUser);
+            if(checkIfExist != null)
             {
-                return _userBookRepo.Insert(ube);
+                return _userBookRepo.Update(ube);
             }
             else 
             {
-                return _userBookRepo.Update(ube);
+                return _userBookRepo.Insert(ube);
             }
             
         }

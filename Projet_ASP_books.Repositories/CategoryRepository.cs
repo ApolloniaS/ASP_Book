@@ -19,11 +19,6 @@ namespace Projet_ASP_books.Repositories
             throw new NotImplementedException();
         }
 
-        public bool ExistOrNot(CategoryEntity toCheck)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<CategoryEntity> Get()
         {
             throw new NotImplementedException();

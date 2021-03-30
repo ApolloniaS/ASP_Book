@@ -13,7 +13,7 @@
                 @Html.ValidationMessageFor(model => model.LoginModel.Login, "", new { @class = "text-danger" })
             </div>
             <div class="mt-10">
-                <input type="text" name="Password" placeholder="Mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mot de passe'" required class="single-input">
+                <input type="password" name="Password" placeholder="Mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mot de passe'" required class="single-input">
                 @Html.ValidationMessageFor(model => model.LoginModel.Password, "", new { @class = "text-danger" })
             </div>
             <div class="mt-10">
@@ -47,11 +47,11 @@
                 @Html.ValidationMessageFor(model => model.UserModel.Birthdate, "", new { @class = "text-danger" })
             </div>
             <div class="mt-10">
-                <input type="text" name="PassWord" placeholder="Entrez le mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Entrez le mot de passe'" required class="single-input">
+                <input type="password" name="PassWord" placeholder="Entrez le mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Entrez le mot de passe'" required class="single-input">
                 @Html.ValidationMessageFor(model => model.UserModel.Password, "", new { @class = "text-danger" })
             </div>
             <div class="mt-10">
-                <input type="text" name="ConfirmPassword" placeholder="Confirmez le mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirmez le mot de passe'" required class="single-input">
+                <input type="password" name="ConfirmPassword" placeholder="Confirmez le mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirmez le mot de passe'" required class="single-input">
                 @Html.ValidationMessageFor(model => model.UserModel.ConfirmPassword, "", new { @class = "text-danger" })
             </div>
             <div class="mt-10">

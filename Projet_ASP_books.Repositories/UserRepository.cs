@@ -72,9 +72,5 @@ namespace Projet_ASP_books.Repositories
             return base.Update(toUpdate, requete);
         }
 
-        public bool ExistOrNot(UserEntity toCheck)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

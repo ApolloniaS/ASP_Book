@@ -19,11 +19,6 @@ namespace Projet_ASP_books.Repositories
             throw new NotImplementedException();
         }
 
-        public bool ExistOrNot(ReadingFormEntity toCheck)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<ReadingFormEntity> Get()
         {
             throw new NotImplementedException();

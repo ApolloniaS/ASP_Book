@@ -92,9 +92,5 @@ namespace Projet_ASP_books.Repositories
             throw new NotImplementedException();
         }
 
-        public bool ExistOrNot(BookEntity toCheck)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

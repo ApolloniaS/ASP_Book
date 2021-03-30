@@ -46,9 +46,5 @@ namespace Projet_ASP_books.Repositories
             throw new NotImplementedException();
         }
 
-        public bool ExistOrNot(AudienceEntity toCheck)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

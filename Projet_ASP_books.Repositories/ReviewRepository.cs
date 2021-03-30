@@ -26,8 +26,6 @@ namespace Projet_ASP_books.Repositories
             return base.Get(requete);
         }
 
-        
-
         public bool Delete(ReviewEntity toDelete)
         {
             throw new NotImplementedException();
@@ -55,9 +53,5 @@ namespace Projet_ASP_books.Repositories
             throw new NotImplementedException();
         }
 
-        public bool ExistOrNot(ReviewEntity toCheck)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

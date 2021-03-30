@@ -19,11 +19,6 @@ namespace Projet_ASP_books.Repositories
             throw new NotImplementedException();
         }
 
-        public bool ExistOrNot(PublisherBookEntity toCheck)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<PublisherBookEntity> Get()
         {
             throw new NotImplementedException();

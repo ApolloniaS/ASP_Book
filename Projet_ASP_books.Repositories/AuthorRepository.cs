@@ -50,9 +50,5 @@ namespace Projet_ASP_books.Repositories
             throw new System.NotImplementedException();
         }
 
-        public bool ExistOrNot(AuthorEntity toCheck)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
